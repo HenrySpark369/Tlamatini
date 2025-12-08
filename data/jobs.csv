@@ -1,0 +1,4 @@
+id,empresa,puesto,competencias_requeridas,sector_estrategico,salario_usd,ubicacion
+O001,Nexperia (Semiconductores),Ingeniero de Procesos,Python|Control de procesos|Electrónica,semiconductores,2500,Guadalajara
+O002,Tesla Manufacturing,Especialista en Automatización,C++|PLC|Robótica|Automatización industrial,automotriz,3000,CDMX
+O003,Airbus Mexico,Ingeniero Estructural,CATIA|Análisis estructural|Composite materials,aeroespacial,3500,Querétaro

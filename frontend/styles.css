@@ -1,0 +1,167 @@
+/* TalentMX - Estilos personalizados */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #4f46e5;
+    --color-secondary: #06b6d4;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Badge de competencias */
+.badge {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0.25rem;
+}
+
+.badge.sector {
+    background-color: var(--color-secondary);
+}
+
+.badge.success {
+    background-color: var(--color-success);
+}
+
+/* Tarjeta de matching */
+.match-card {
+    border-left: 4px solid var(--color-primary);
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.match-card:hover {
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+    transform: translateY(-2px);
+}
+
+.match-card.high {
+    border-left-color: var(--color-success);
+}
+
+.match-card.medium {
+    border-left-color: var(--color-warning);
+}
+
+.match-card.low {
+    border-left-color: var(--color-danger);
+}
+
+/* Barra de progreso de compatibilidad */
+.compatibility-bar {
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.compatibility-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #10b981, var(--color-primary));
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* Animación de carga */
+.loading {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Botón interactivo */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    transform: scale(1.05);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1rem;
+    }
+}
+
+/* Estados de conexión */
+.status-online {
+    color: #10b981;
+}
+
+.status-offline {
+    color: #ef4444;
+}
+
+/* Tarjeta de estudiante */
+.student-item {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #f3f4f6;
+    border-left: 3px solid transparent;
+}
+
+.student-item:hover {
+    background-color: #e5e7eb;
+    border-left-color: var(--color-primary);
+}
+
+.student-item.active {
+    background-color: #eef2ff;
+    border-left-color: var(--color-primary);
+    font-weight: 600;
+}

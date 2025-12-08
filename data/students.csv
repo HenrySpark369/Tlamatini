@@ -1,0 +1,4 @@
+id,nombre,carrera,semestre,competencias,sector_interes
+E001,Carlos Mendoza,Ingeniería en Electrónica,8,Python|Control de procesos|Electrónica|PCB design,semiconductores
+E002,Ana García,Ingeniería Mecatrónica,6,C++|Robótica|PLC|Automatización industrial,automotriz
+E003,Miguel López,Ingeniería Aeronáutica,9,CATIA|Dinámica de fluidos|Composite materials|Análisis estructural,aeroespacial
