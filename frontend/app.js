@@ -39,6 +39,102 @@ const MOCK_ESTUDIANTES = [
     },
     {
         id: "E004",
+        nombre: "Diana Reyes",
+        carrera: "Ingeniería en Software",
+        semestre: 7,
+        competencias: ["Python", "JavaScript", "React", "Node.js", "Bases de datos"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E005",
+        nombre: "Roberto Silva",
+        carrera: "Ingeniería Mecánica",
+        semestre: 10,
+        competencias: ["CAD", "Simulación", "Resistencia de materiales", "Diseño 3D"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E006",
+        nombre: "Sofía González",
+        carrera: "Ingeniería Eléctrica",
+        semestre: 5,
+        competencias: ["Matlab", "Procesamiento de señales", "Microcontroladores", "Arduino"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E007",
+        nombre: "Juan Torres",
+        carrera: "Ingeniería Industrial",
+        semestre: 9,
+        competencias: ["Lean", "Six Sigma", "Optimización de procesos", "Excel avanzado"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E008",
+        nombre: "Mariana López",
+        carrera: "Ingeniería Química",
+        semestre: 6,
+        competencias: ["Termodinámica", "Procesos químicos", "Matlab", "Simulación"],
+        sector_interes: "energia_limpia"
+    },
+    {
+        id: "E009",
+        nombre: "Francisco Ruiz",
+        carrera: "Ingeniería en Telecomunicaciones",
+        semestre: 8,
+        competencias: ["5G", "Sistemas embebidos", "Linux", "C", "Protocolos de red"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E010",
+        nombre: "Lucia Ortiz",
+        carrera: "Ingeniería Ambiental",
+        semestre: 7,
+        competencias: ["GIS", "Análisis de datos", "Python", "Energías renovables"],
+        sector_interes: "energia_limpia"
+    },
+    {
+        id: "E011",
+        nombre: "Andrés Méndez",
+        carrera: "Ingeniería Mecatrónica",
+        semestre: 10,
+        competencias: ["Visión por computadora", "OpenCV", "Python", "Robótica avanzada"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E012",
+        nombre: "Camila Ruiz",
+        carrera: "Ingeniería Aeronáutica",
+        semestre: 8,
+        competencias: ["CATIA avanzado", "Aerodinámica", "Composite design", "FEA"],
+        sector_interes: "aeroespacial"
+    },
+    {
+        id: "E013",
+        nombre: "David Chen",
+        carrera: "Ingeniería de Sistemas",
+        semestre: 7,
+        competencias: ["Cloud", "AWS", "Docker", "Kubernetes", "Microservicios"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E014",
+        nombre: "Elena Vázquez",
+        carrera: "Ingeniería Mecánica",
+        semestre: 6,
+        competencias: ["Automatización", "Robótica industrial", "PLC", "HMI"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E015",
+        nombre: "Pablo García",
+        carrera: "Ingeniería Electrónica",
+        semestre: 9,
+        competencias: ["Diseño de circuitos", "FPGA", "Verilog", "Power electronics"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E004",
         nombre: "Laura Santana",
         carrera: "Ingeniería Ambiental",
         semestre: 7,
@@ -138,6 +234,159 @@ const MOCK_OFERTAS = [
         sector_estrategico: "aeroespacial",
         salario_usd: 3500,
         ubicacion: "Querétaro"
+    },
+    {
+        id: "O004",
+        empresa: "Intel Mexico",
+        puesto: "Ingeniero de Software",
+        competencias_requeridas: ["Python", "JavaScript", "Bases de datos", "Node.js"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3200,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O005",
+        empresa: "Volkswagen",
+        puesto: "Ingeniero CAD",
+        competencias_requeridas: ["CAD", "Simulación", "Resistencia de materiales"],
+        sector_estrategico: "automotriz",
+        salario_usd: 2800,
+        ubicacion: "Puebla"
+    },
+    {
+        id: "O006",
+        empresa: "Qualcomm",
+        puesto: "Especialista en Microcontroladores",
+        competencias_requeridas: ["Matlab", "Microcontroladores", "Arduino", "C"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3400,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O007",
+        empresa: "BMW Toluca",
+        puesto: "Ingeniero de Procesos Lean",
+        competencias_requeridas: ["Lean", "Six Sigma", "Optimización"],
+        sector_estrategico: "automotriz",
+        salario_usd: 3100,
+        ubicacion: "Toluca"
+    },
+    {
+        id: "O008",
+        empresa: "Siemens",
+        puesto: "Especialista en 5G",
+        competencias_requeridas: ["5G", "Linux", "C", "Protocolos de red"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3600,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O009",
+        empresa: "Enel Green Power",
+        puesto: "Analista Ambiental",
+        competencias_requeridas: ["GIS", "Python", "Análisis de datos"],
+        sector_estrategico: "energia_limpia",
+        salario_usd: 2700,
+        ubicacion: "Monterrey"
+    },
+    {
+        id: "O010",
+        empresa: "Repsol",
+        puesto: "Ingeniero Químico",
+        competencias_requeridas: ["Termodinámica", "Procesos químicos", "Matlab"],
+        sector_estrategico: "energia_limpia",
+        salario_usd: 3300,
+        ubicacion: "Salina Cruz"
+    },
+    {
+        id: "O011",
+        empresa: "ABB",
+        puesto: "Especialista Robótica",
+        competencias_requeridas: ["Visión por computadora", "OpenCV", "Robótica avanzada"],
+        sector_estrategico: "automotriz",
+        salario_usd: 3500,
+        ubicacion: "San Luis Potosí"
+    },
+    {
+        id: "O012",
+        empresa: "Bombardier",
+        puesto: "Ingeniero Aeronáutico Senior",
+        competencias_requeridas: ["CATIA avanzado", "Aerodinámica", "Composite"],
+        sector_estrategico: "aeroespacial",
+        salario_usd: 4000,
+        ubicacion: "Ciudad de México"
+    },
+    {
+        id: "O013",
+        empresa: "Microsoft",
+        puesto: "Ingeniero Cloud",
+        competencias_requeridas: ["AWS", "Docker", "Kubernetes", "Microservicios"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 4200,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O014",
+        empresa: "Apex",
+        puesto: "Ingeniero de Automatización",
+        competencias_requeridas: ["Automatización", "HMI", "PLC", "Robótica industrial"],
+        sector_estrategico: "automotriz",
+        salario_usd: 3100,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O015",
+        empresa: "Airbus",
+        puesto: "Especialista FPGA",
+        competencias_requeridas: ["Diseño de circuitos", "FPGA", "Verilog"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3800,
+        ubicacion: "Querétaro"
+    },
+    {
+        id: "O016",
+        empresa: "PEMEX",
+        puesto: "Analista de Energías Renovables",
+        competencias_requeridas: ["Energías renovables", "GIS", "Análisis de datos"],
+        sector_estrategico: "energia_limpia",
+        salario_usd: 2900,
+        ubicacion: "Región Sur"
+    },
+    {
+        id: "O017",
+        empresa: "Bosch",
+        puesto: "Ingeniero de Pruebas",
+        competencias_requeridas: ["Testing", "C++", "Automatización de pruebas", "Linux"],
+        sector_estrategico: "automotriz",
+        salario_usd: 2900,
+        ubicacion: "Toluca"
+    },
+    {
+        id: "O018",
+        empresa: "Samsung",
+        puesto: "Diseñador de Circuitos",
+        competencias_requeridas: ["Diseño de circuitos", "Power electronics", "FPGA"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3700,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O019",
+        empresa: "Rolls-Royce",
+        puesto: "Ingeniero Estructural Avanzado",
+        competencias_requeridas: ["CATIA", "Composite materials", "FEA avanzado"],
+        sector_estrategico: "aeroespacial",
+        salario_usd: 3900,
+        ubicacion: "Querétaro"
+    },
+    {
+        id: "O020",
+        empresa: "Infineon",
+        puesto: "Especialista en Procesamiento",
+        competencias_requeridas: ["Matlab", "Procesamiento de señales", "DSP"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3500,
+        ubicacion: "Guadalajara"
     },
     {
         id: "O004",
