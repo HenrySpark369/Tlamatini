@@ -115,9 +115,31 @@
 
                 <!-- Ofertas Recomendadas -->
                 <div class="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
-                    <h2 class="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
-                        <i class="fas fa-star text-yellow-500"></i> Tus Mejores Matches
-                    </h2>
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-black text-slate-900 flex items-center gap-3">
+                            <i class="fas fa-star text-yellow-500"></i> Tus Mejores Matches
+                        </h2>
+                        
+                        <!-- Toggle SVD/NLP -->
+                        <div class="flex items-center gap-3 bg-slate-100 p-2 rounded-lg">
+                            <button onclick="cambiarAlgoritmo('nlp')" id="btn-nlp" class="algoritmo-btn active px-4 py-2 rounded font-bold text-sm transition">
+                                <i class="fas fa-text-height mr-1"></i>NLP
+                            </button>
+                            <button onclick="cambiarAlgoritmo('svd')" id="btn-svd" class="algoritmo-btn px-4 py-2 rounded font-bold text-sm transition">
+                                <i class="fas fa-cube mr-1"></i>SVD
+                            </button>
+                            <button onclick="mostrarComparativa()" id="btn-compare" class="algoritmo-btn px-4 py-2 rounded font-bold text-sm transition">
+                                <i class="fas fa-scale-balanced mr-1"></i>Comparar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Info de algoritmo activo -->
+                    <div id="algoritmoInfo" class="mb-4 text-sm text-slate-600 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span id="algoritmoTexto">Usando algoritmo NLP (TF-IDF) - Análisis textual de competencias</span>
+                    </div>
+                    
                     <div id="ofertasRecomendadas" class="space-y-4">
                         <!-- Se llena dinámicamente -->
                     </div>
@@ -251,6 +273,48 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal Comparativa SVD vs NLP -->
+    <div id="modalComparativa" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 flex items-center justify-between">
+                <h2 class="text-2xl font-black flex items-center gap-3">
+                    <i class="fas fa-scale-balanced"></i> Comparativa: SVD vs NLP
+                </h2>
+                <button onclick="cerrarComparativa()" class="text-2xl hover:text-gray-200">×</button>
+            </div>
+            
+            <div class="p-8">
+                <!-- Resumen comparativo -->
+                <div id="resumenComparativa" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                
+                <!-- Comparación lado a lado -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- NLP -->
+                    <div class="bg-blue-50 rounded-lg p-6 border-2 border-blue-300">
+                        <h3 class="text-lg font-black text-blue-900 mb-4 flex items-center gap-2">
+                            <i class="fas fa-text-height"></i> NLP (TF-IDF)
+                        </h3>
+                        <div id="comparativaNLP" class="space-y-2">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <!-- SVD -->
+                    <div class="bg-purple-50 rounded-lg p-6 border-2 border-purple-300">
+                        <h3 class="text-lg font-black text-purple-900 mb-4 flex items-center gap-2">
+                            <i class="fas fa-cube"></i> SVD (Valores Singulares)
+                        </h3>
+                        <div id="comparativaSVD" class="space-y-2">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="dashboard-estudiante.js"></script>
 </body>

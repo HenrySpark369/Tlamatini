@@ -403,3 +403,76 @@ a:focus {
     color: var(--slate-600);
     opacity: 0.6;
 }
+
+/* ===== ALGORITMO BUTTONS ===== */
+
+.algoritmo-btn {
+    transition: all 0.2s ease;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.algoritmo-btn.active {
+    background: white;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.algoritmo-btn:not(.active) {
+    background: transparent;
+    color: var(--slate-600);
+}
+
+.algoritmo-btn:not(.active):hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ===== BADGE STYLES ===== */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--slate-200);
+    color: var(--slate-900);
+}
+
+.badge.bg-green-100 {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.text-green-800 {
+    color: #166534;
+}
+
+.badge.bg-amber-100 {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge.text-amber-800 {
+    color: #92400e;
+}
+
+.badge.bg-blue-100 {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge.text-blue-800 {
+    color: #1e40af;
+}
+
+.badge.bg-purple-100 {
+    background: #f3e8ff;
+    color: #6b21a8;
+}
+
+.badge.text-purple-800 {
+    color: #6b21a8;
+}
+

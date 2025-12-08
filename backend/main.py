@@ -160,6 +160,82 @@ async def obtener_matches_endpoint(estudiante_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en algoritmo de matching: {str(e)}")
 
+@app.get("/matching/compare/{estudiante_id}")
+async def comparar_algoritmos(estudiante_id: str):
+    """
+    Endpoint comparativo: retorna matches usando AMBOS algoritmos (NLP vs SVD).
+    Útil para visualizar diferencias en frontend y validar mejora de SVD.
+    
+    Returns:
+        {
+            "estudiante_id": str,
+            "nlp_matches": List[ResultadoMatching],
+            "svd_matches": List[ResultadoMatching],
+            "comparativa": {
+                "algoritmo_ganador": "svd" | "nlp",
+                "diferencia_promedio": float,
+                "matches_solo_svd": int,
+                "matches_solo_nlp": int
+            }
+        }
+    """
+    if estudiante_id not in ESTUDIANTES_DB:
+        raise HTTPException(status_code=404, detail="Estudiante no encontrado")
+    
+    try:
+        estudiante = ESTUDIANTES_DB[estudiante_id]
+        
+        # Matches con NLP (algoritmo original)
+        matches_nlp = obtener_matches(estudiante, OFERTAS_DB)
+        
+        # Matches con SVD
+        estudiante_idx = list(ESTUDIANTES_DB.keys()).index(estudiante_id)
+        matches_svd = obtener_matches_svd(estudiante_idx, estudiante, OFERTAS_DB)
+        
+        # Análisis comparativo
+        nlp_ids = {m.oferta_id for m in matches_nlp}
+        svd_ids = {m.oferta_id for m in matches_svd}
+        
+        solo_svd = list(svd_ids - nlp_ids)
+        solo_nlp = list(nlp_ids - svd_ids)
+        
+        # Diferencia promedio en matches comunes
+        comunes = nlp_ids & svd_ids
+        diferencias = []
+        for oferta_id in comunes:
+            nlp_score = next(m.compatibilidad for m in matches_nlp if m.oferta_id == oferta_id)
+            svd_score = next(m.compatibilidad for m in matches_svd if m.oferta_id == oferta_id)
+            diferencias.append(abs(svd_score - nlp_score))
+        
+        diff_promedio = sum(diferencias) / len(diferencias) if diferencias else 0.0
+        
+        # Determinar ganador
+        if len(matches_svd) > len(matches_nlp):
+            ganador = "svd"
+        elif len(matches_nlp) > len(matches_svd):
+            ganador = "nlp"
+        else:
+            ganador = "empate"
+        
+        return {
+            "estudiante_id": estudiante_id,
+            "estudiante_nombre": estudiante.nombre,
+            "nlp_matches": matches_nlp,
+            "svd_matches": matches_svd,
+            "comparativa": {
+                "total_nlp": len(matches_nlp),
+                "total_svd": len(matches_svd),
+                "algoritmo_ganador": ganador,
+                "diferencia_promedio_pct": round(diff_promedio, 1),
+                "matches_solo_svd": len(solo_svd),
+                "matches_solo_nlp": len(solo_nlp),
+                "matches_en_comun": len(comunes),
+                "timestamp": datetime.now().isoformat()
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error en comparación: {str(e)}")
+
 @app.get("/matching/svd/{estudiante_id}", response_model=List[ResultadoMatching])
 async def obtener_matches_svd_endpoint(estudiante_id: str):
     """
