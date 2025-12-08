@@ -2,3 +2,12 @@ id,nombre,carrera,semestre,competencias,sector_interes
 E001,Carlos Mendoza,Ingeniería en Electrónica,8,Python|Control de procesos|Electrónica|PCB design,semiconductores
 E002,Ana García,Ingeniería Mecatrónica,6,C++|Robótica|PLC|Automatización industrial,automotriz
 E003,Miguel López,Ingeniería Aeronáutica,9,CATIA|Dinámica de fluidos|Composite materials|Análisis estructural,aeroespacial
+E004,Laura Santana,Ingeniería Ambiental,7,Python|Análisis de datos|Sostenibilidad|SIG,energia_limpia
+E005,Diego Ruiz,Ingeniería Mecánica,5,CAD|Diseño industrial|Simulación FEA|Soldadura,automotriz
+E006,Sofia Chen,Ingeniería en Sistemas,10,Java|Spring Boot|SQL|Cloud|AWS,semiconductores
+E007,Ricardo Flores,Ingeniería Eléctrica,8,Control digital|MATLAB|Simulink|Power systems,energia_limpia
+E008,María Rodríguez,Ingeniería Química,6,Procesos químicos|Control de calidad|Nanotecnología|R&D,semiconductores
+E009,Juan Pablo Moreno,Ingeniería Civil,4,BIM|Autocad|Gestión de proyectos|Estructuras,otro
+E010,Alexandra Vega,Ingeniería en Telecom,9,C|Redes|5G|Programación embebida,semiconductores
+E011,Fernando Santos,Ingeniería Mecatrónica,7,Arduino|IoT|Python|Machine Learning|Visión artificial,automotriz
+E012,Valeria López,Ingeniería Aeronáutica,8,CATIA|Dinámica de vuelo|Aerodinámica|Composite design,aeroespacial
