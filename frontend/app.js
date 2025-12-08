@@ -313,6 +313,57 @@ async function cargarEstadisticas() {
         document.getElementById("statOfertas").textContent = data.total_ofertas;
         document.getElementById("statSalario").textContent = `$${data.salario_promedio_usd}`;
     }
+    
+    // Cargar analytics en tiempo real
+    cargarAnalytics();
+}
+
+/**
+ * Cargar métricas de analytics (Build-Measure-Learn)
+ */
+async function cargarAnalytics() {
+    let analytics = await fetchAPI("/analytics/summary");
+    
+    if (!analytics && MOCK_ENABLED) {
+        analytics = {
+            total_matches_generated: 0,
+            unique_students_active: 0,
+            avg_matches_per_student: 0,
+            status: "📊 Mock mode"
+        };
+    }
+    
+    if (analytics) {
+        // Crear o actualizar badge de analytics
+        let badge = document.getElementById("analytics-badge");
+        if (!badge) {
+            badge = document.createElement("div");
+            badge.id = "analytics-badge";
+            badge.className = "analytics-badge";
+            
+            // Insertar después del header
+            const header = document.querySelector("header");
+            header.parentNode.insertBefore(badge, header.nextSibling);
+        }
+        
+        badge.innerHTML = `
+            <div class="flex items-center justify-center gap-6 text-sm">
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-chart-line text-primary"></i>
+                    <strong>${analytics.total_matches_generated}</strong> matches generados
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-users text-success"></i>
+                    <strong>${analytics.unique_students_active}</strong> estudiantes activos
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-star text-warning"></i>
+                    <strong>${analytics.avg_matches_per_student}</strong> promedio por estudiante
+                </span>
+                <span class="text-xs text-slate-500">${analytics.status}</span>
+            </div>
+        `;
+    }
 }
 
 // ============ UTILIDADES ============

@@ -6,13 +6,31 @@ Backend API (FastAPI) - MVP Hackathón Plan México
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 import json
 from datetime import datetime
 
 # Importar módulos de matching
 from modules.data_models import Estudiante, Oferta, ResultadoMatching
 from modules.matching import calcular_compatibilidad, obtener_matches
+
+# ============ SISTEMA DE TRACKING DE EVENTOS ============
+EVENTS_LOG: List[Dict[str, Any]] = []
+
+def track_event(event_type: str, data: Dict[str, Any]) -> None:
+    """
+    Trackea eventos de usuario para análisis Build-Measure-Learn.
+    
+    Args:
+        event_type: Tipo de evento (match_generated, application_sent, etc.)
+        data: Datos adicionales del evento
+    """
+    EVENTS_LOG.append({
+        "timestamp": datetime.now().isoformat(),
+        "type": event_type,
+        "data": data
+    })
+    print(f"📊 Event tracked: {event_type} - {data}")
 
 # Configuración FastAPI
 app = FastAPI(
@@ -126,7 +144,7 @@ async def obtener_oferta(oferta_id: str):
     return OFERTAS_DB[oferta_id]
 
 @app.get("/matching/{estudiante_id}", response_model=List[ResultadoMatching])
-async def obtener_matches(estudiante_id: str):
+async def obtener_matches_endpoint(estudiante_id: str):
     """Algoritmo de matching: encuentra las mejores ofertas para un estudiante"""
     if estudiante_id not in ESTUDIANTES_DB:
         raise HTTPException(status_code=404, detail="Estudiante no encontrado")
@@ -134,6 +152,14 @@ async def obtener_matches(estudiante_id: str):
     try:
         estudiante = ESTUDIANTES_DB[estudiante_id]
         matches = obtener_matches(estudiante, OFERTAS_DB)
+        
+        # Track evento de match generado
+        track_event("match_generated", {
+            "student_id": estudiante_id,
+            "num_matches": len(matches),
+            "sector": estudiante.sector_interes
+        })
+        
         return matches
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en algoritmo de matching: {str(e)}")
@@ -169,6 +195,35 @@ async def estadisticas():
         "sectores_estrategicos": ["semiconductores", "automotriz", "aeroespacial"],
         "salario_promedio_usd": sum([o.salario_usd for o in OFERTAS_DB.values()]) / len(OFERTAS_DB),
         "timestamp": datetime.now().isoformat()
+    }
+
+@app.get("/analytics/summary")
+async def analytics_summary():
+    """
+    Analytics dashboard - métricas en tiempo real para Build-Measure-Learn.
+    Retorna KPIs clave del sistema de matching.
+    """
+    # Calcular métricas desde eventos
+    match_events = [e for e in EVENTS_LOG if e["type"] == "match_generated"]
+    unique_students = set(e["data"]["student_id"] for e in match_events) if match_events else set()
+    
+    total_matches = sum(e["data"]["num_matches"] for e in match_events) if match_events else 0
+    avg_matches = round(total_matches / len(unique_students), 2) if unique_students else 0
+    
+    # Distribución por sector
+    sector_counts = {}
+    for event in match_events:
+        sector = event["data"].get("sector", "unknown")
+        sector_counts[sector] = sector_counts.get(sector, 0) + 1
+    
+    return {
+        "total_matches_generated": total_matches,
+        "unique_students_active": len(unique_students),
+        "avg_matches_per_student": avg_matches,
+        "total_events_tracked": len(EVENTS_LOG),
+        "sectors_distribution": sector_counts,
+        "last_updated": datetime.now().isoformat(),
+        "status": "✅ System tracking active"
     }
 
 # ============ MANEJO DE ERRORES ============

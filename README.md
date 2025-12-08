@@ -128,13 +128,68 @@ jupyter notebook data/analysis.ipynb
 
 ---
 
-## 📊 Métricas de Éxito del MVP
-- [ ] API de matching funcional
-- [ ] Dashboard de oportunidades visible
-- [ ] Matching accuracy > 70%
+## 📊 Validación y Métricas (Build-Measure-Learn)
+
+### Metodología Lean Startup
+TalentMX aplica el ciclo **Build-Measure-Learn** para validar hipótesis antes de escalar:
+
+1. **BUILD:** MVP funcional con matching inteligente ✅
+2. **MEASURE:** Sistema de tracking de eventos en tiempo real 🔄
+3. **LEARN:** Iteración basada en datos de usuarios reales (próxima fase)
+
+### Hipótesis Clave a Validar
+- **H1:** Matching con IA reduce 75% el tiempo de conexión (30 días → 7 días)
+- **H2:** Algoritmo logra > 70% de accuracy según validación empresas
+- **H3:** Tasa de aplicación aumenta 40% vs. búsqueda manual
+
+### Métricas AARRR (Pirate Metrics)
+| Métrica | Target MVP | Estado |
+|---------|------------|--------|
+| **Acquisition** | 50 estudiantes + 10 empresas/mes | 🎯 |
+| **Activation** | > 60% completa perfil en sesión 1 | 📊 |
+| **Retention** | > 40% retención semana 2 | 📊 |
+| **Referral** | > 20% invita compañeros | 📊 |
+| **Revenue** | 15% conversión premium (mes 3) | 🔜 |
+
+### Dashboard de Analytics
+El sistema trackea en tiempo real:
+- Total de matches generados
+- Estudiantes activos únicos
+- Promedio de matches por estudiante
+- Tasa de conversión (aplicaciones/matches)
+
+**📋 Documentación completa:** Ver [`docs/METRICAS.md`](docs/METRICAS.md)
+
+---
+
+## 📈 Roadmap Post-MVP
+
+### Fase 1: Validación (Semanas 3-4)
+- [ ] Onboarding de 20 early adopters (Universidad Rosario Castellanos)
+- [ ] Recolección de feedback cualitativo
+- [ ] Validación de hipótesis H1 y H2
+
+### Fase 2: Iteración (Mes 2)
+- [ ] Implementar top 3 features solicitadas
+- [ ] Ejecutar experimentos A/B
+- [ ] Optimizar algoritmo basado en datos reales
+
+### Fase 3: Preparación para Escala (Mes 3)
+- [ ] Migrar a PostgreSQL (persistencia)
+- [ ] Implementar autenticación robusta (JWT)
+- [ ] Deploy a AWS Lightsail con auto-scaling
+- [ ] Integración con universidades adicionales
+
+---
+
+## 🎯 Métricas de Éxito del MVP
+- [x] API de matching funcional
+- [x] Dashboard de oportunidades visible
+- [x] Sistema de tracking implementado
+- [ ] Matching accuracy > 70% (validación en curso)
 - [ ] Tiempo de respuesta < 2s
 
 ---
 
 **Última actualización:** Diciembre 8, 2025  
-**Estado:** MVP en desarrollo (Hackathón 2024)
+**Estado:** MVP completado - Fase de medición iniciada 🚀
