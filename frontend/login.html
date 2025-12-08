@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-red-900 to-amber-900 min-h-screen flex items-center justify-center">
+<body id="pageBody" class="bg-gradient-to-br from-slate-900 via-red-900 to-amber-900 min-h-screen flex items-center justify-center transition-all duration-500">
     
     <div class="absolute inset-0 opacity-10">
         <div class="absolute top-20 left-10 w-72 h-72 bg-red-700 rounded-full mix-blend-multiply filter blur-xl"></div>
@@ -91,17 +91,23 @@
                 <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
             
             <!-- Tabs -->
-            <div class="flex">
-                <button onclick="cambiarTipo('estudiante')" id="tab-estudiante" class="flex-1 py-4 px-6 font-bold text-center border-b-2 border-red-900 bg-slate-50 text-red-900 transition">
+            <div class="flex flex-wrap">
+                <button onclick="cambiarTipo('estudiante')" id="tab-estudiante" class="flex-1 min-w-[120px] py-4 px-4 font-bold text-center border-b-2 border-red-900 bg-slate-50 text-red-900 transition text-sm">
                     <i class="fas fa-user-graduate mr-2"></i> Estudiante
                 </button>
-                <button onclick="cambiarTipo('empresa')" id="tab-empresa" class="flex-1 py-4 px-6 font-bold text-center border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition">
+                <button onclick="cambiarTipo('empresa')" id="tab-empresa" class="flex-1 min-w-[120px] py-4 px-4 font-bold text-center border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition text-sm">
                     <i class="fas fa-building mr-2"></i> Empresa
+                </button>
+                <button onclick="cambiarTipo('mujer')" id="tab-mujer" class="flex-1 min-w-[120px] py-4 px-4 font-bold text-center border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition text-sm">
+                    <i class="fas fa-female mr-2"></i> Mujer
+                </button>
+                <button onclick="cambiarTipo('discapacidad')" id="tab-discapacidad" class="flex-1 min-w-[120px] py-4 px-4 font-bold text-center border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition text-sm">
+                    <i class="fas fa-universal-access mr-2"></i> Discapacidad
                 </button>
             </div>
 
             <!-- Form Container -->
-            <div class="p-8">
+            <div id="formContainer" class="p-8 transition-colors duration-300">
                 <!-- Estudiante Login -->
                 <form id="loginEstudiante" class="space-y-4">
                     <div>
@@ -143,6 +149,56 @@
                     </div>
                     <button type="button" onclick="loginEmpresa()" class="w-full bg-gradient-to-r from-red-900 to-amber-900 text-white font-bold py-3 rounded-lg hover:shadow-lg transition transform hover:-translate-y-1">
                         INGRESAR COMO EMPRESA
+                    </button>
+                </form>
+
+                <!-- Mujer Login -->
+                <form id="loginMujer" class="space-y-4 hidden">
+                    <div class="bg-pink-100 border border-pink-300 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-semibold text-pink-800">👩 Portal para Mujeres Emprendedoras</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Correo Electrónico</label>
+                        <input type="email" id="mujer-login-email" placeholder="tu.nombre@email.com" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Contraseña</label>
+                        <input type="password" id="mujer-login-password" placeholder="Ingresa tu contraseña" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent" required>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-pink-600">
+                            <span class="ml-2 text-slate-600">Recuérdame</span>
+                        </label>
+                        <a href="#" class="text-pink-900 hover:text-pink-800 font-semibold">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="button" onclick="loginMujer()" class="w-full bg-gradient-to-r from-pink-600 to-pink-500 text-white font-bold py-3 rounded-lg hover:shadow-lg transition transform hover:-translate-y-1">
+                        INGRESAR COMO MUJER
+                    </button>
+                </form>
+
+                <!-- Persona con Discapacidad Login -->
+                <form id="loginDiscapacidad" class="space-y-4 hidden">
+                    <div class="bg-blue-100 border border-blue-300 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-semibold text-blue-800">♿ Portal para Personas con Discapacidad</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Correo Electrónico</label>
+                        <input type="email" id="disc-login-email" placeholder="tu.nombre@email.com" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Contraseña</label>
+                        <input type="password" id="disc-login-password" placeholder="Ingresa tu contraseña" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" required>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600">
+                            <span class="ml-2 text-slate-600">Recuérdame</span>
+                        </label>
+                        <a href="#" class="text-blue-900 hover:text-blue-800 font-semibold">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="button" onclick="loginDiscapacidad()" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold py-3 rounded-lg hover:shadow-lg transition transform hover:-translate-y-1">
+                        INGRESAR - PERSONA CON DISCAPACIDAD
                     </button>
                 </form>
 
@@ -188,22 +244,57 @@
 
     <script>
         function cambiarTipo(tipo) {
-            // Actualizar tabs
-            document.getElementById('tab-estudiante').classList.toggle('border-red-900', tipo === 'estudiante');
-            document.getElementById('tab-estudiante').classList.toggle('border-transparent', tipo !== 'estudiante');
-            document.getElementById('tab-estudiante').classList.toggle('bg-slate-50', tipo === 'estudiante');
-            document.getElementById('tab-estudiante').classList.toggle('text-red-900', tipo === 'estudiante');
-            document.getElementById('tab-estudiante').classList.toggle('text-slate-600', tipo !== 'estudiante');
+            const tipos = ['estudiante', 'empresa', 'mujer', 'discapacidad'];
+            const pageBody = document.getElementById('pageBody');
+            const formContainer = document.getElementById('formContainer');
+            
+            // Remover todas las clases de gradiente previas del body
+            pageBody.classList.remove('bg-gradient-to-br', 'from-slate-900', 'via-red-900', 'to-amber-900', 
+                                       'from-pink-900', 'via-pink-700', 'to-pink-600',
+                                       'from-blue-900', 'via-blue-700', 'to-blue-600');
+            
+            // Establecer gradiente según el tipo
+            if (tipo === 'mujer') {
+                pageBody.classList.add('bg-gradient-to-br', 'from-pink-900', 'via-pink-700', 'to-pink-600');
+            } else if (tipo === 'discapacidad') {
+                pageBody.classList.add('bg-gradient-to-br', 'from-blue-900', 'via-blue-700', 'to-blue-600');
+            } else {
+                pageBody.classList.add('bg-gradient-to-br', 'from-slate-900', 'via-red-900', 'to-amber-900');
+            }
+            
+            // Remover todas las clases de color previas del formulario
+            formContainer.classList.remove('bg-pink-50', 'bg-blue-50', 'bg-white');
+            
+            // Establecer color del formulario según el tipo
+            if (tipo === 'mujer') {
+                formContainer.classList.add('bg-pink-50');
+            } else if (tipo === 'discapacidad') {
+                formContainer.classList.add('bg-blue-50');
+            } else {
+                formContainer.classList.add('bg-white');
+            }
+            
+            // Actualizar todos los tabs
+            tipos.forEach(t => {
+                const tab = document.getElementById(`tab-${t}`);
+                const form = document.getElementById(`login${t.charAt(0).toUpperCase() + t.slice(1)}`);
+                
+                if (t === 'discapacidad') {
+                    form = document.getElementById('loginDiscapacidad');
+                }
+                
+                tab.classList.toggle('border-red-900', t === tipo);
+                tab.classList.toggle('border-transparent', t !== tipo);
+                tab.classList.toggle('bg-slate-50', t === tipo);
+                tab.classList.toggle('text-red-900', t === tipo);
+                tab.classList.toggle('text-slate-600', t !== tipo);
+            });
 
-            document.getElementById('tab-empresa').classList.toggle('border-red-900', tipo === 'empresa');
-            document.getElementById('tab-empresa').classList.toggle('border-transparent', tipo !== 'empresa');
-            document.getElementById('tab-empresa').classList.toggle('bg-slate-50', tipo === 'empresa');
-            document.getElementById('tab-empresa').classList.toggle('text-red-900', tipo === 'empresa');
-            document.getElementById('tab-empresa').classList.toggle('text-slate-600', tipo !== 'empresa');
-
-            // Actualizar forms
+            // Actualizar todos los forms
             document.getElementById('loginEstudiante').classList.toggle('hidden', tipo !== 'estudiante');
             document.getElementById('loginEmpresa').classList.toggle('hidden', tipo !== 'empresa');
+            document.getElementById('loginMujer').classList.toggle('hidden', tipo !== 'mujer');
+            document.getElementById('loginDiscapacidad').classList.toggle('hidden', tipo !== 'discapacidad');
         }
 
         function loginEstudiante() {
@@ -252,6 +343,54 @@
             localStorage.setItem('companyId', empresa.id);
             localStorage.setItem('companyEmail', empresa.email);
             window.location.href = 'dashboard-empresa.html';
+        }
+
+        function loginMujer() {
+            const email = document.getElementById('mujer-login-email').value;
+            const password = document.getElementById('mujer-login-password').value;
+
+            if (!email || !password) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+
+            // Obtener mujeres del localStorage
+            const mujeres = JSON.parse(localStorage.getItem('mujeres') || '[]');
+            const mujer = mujeres.find(m => m.email === email && m.password === password);
+
+            if (!mujer) {
+                alert('Email o contraseña incorrectos');
+                return;
+            }
+
+            localStorage.setItem('userType', 'mujer');
+            localStorage.setItem('userId', mujer.id);
+            localStorage.setItem('userEmail', mujer.email);
+            window.location.href = 'dashboard-estudiante.html';
+        }
+
+        function loginDiscapacidad() {
+            const email = document.getElementById('disc-login-email').value;
+            const password = document.getElementById('disc-login-password').value;
+
+            if (!email || !password) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+
+            // Obtener personas con discapacidad del localStorage
+            const discapacidad = JSON.parse(localStorage.getItem('discapacidad') || '[]');
+            const persona = discapacidad.find(p => p.email === email && p.password === password);
+
+            if (!persona) {
+                alert('Email o contraseña incorrectos');
+                return;
+            }
+
+            localStorage.setItem('userType', 'discapacidad');
+            localStorage.setItem('userId', persona.id);
+            localStorage.setItem('userEmail', persona.email);
+            window.location.href = 'dashboard-estudiante.html';
         }
 
         function loginDemo() {
