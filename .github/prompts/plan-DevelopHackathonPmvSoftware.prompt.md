@@ -10,6 +10,13 @@ Resumen: Desarrollar un software MVP funcional, alineado con los sectores del Pl
 6. Preparar los entregables: Crear una presentación, una hoja técnica en el archivo README y un repositorio con la documentación de instalación.
 
 ### Consideraciones adicionales
-1. Elegir sector
-2. Tamaño y roles del equipo: ¿Individual o en parejas? Ajustar el enfoque de backend/frontend según las directrices en `.github/instructions/`.
-3. Integración de temas sociales: ¿Añadir funcionalidades ambientales, de género y de paz para aumentar la puntuación en un 3%?
+3. Integración de temas sociales: Equidad de Género e Inclusión Digital
+
+## Decisiones Post-Validación
+- Sector Estrategico: Tecnologías de la Información y Software
+- Temática Sobresaliente: Generación de Empleos de Alto Valor
+- Hipótesis de Valor: Comunidades subrepresentadas (mujeres, minorías de género) en el ecosistema digital mexicano benefician de una red social que fomenta colaboraciones en proyectos de software, generando oportunidades de empleo y reduciendo desigualdades en innovación tecnológica.
+- Hipótesis de Crecimiento: La red crecerá orgánicamente por recomendaciones de usuarios, escalando a regional (México y Latinoamérica) a través de eventos hackatón y nearshoring, generando empleos de alto valor en 200+ proyectos colaborativos alineados con la digitalización nacional.
+
+## Propuesta de proyecto
+**Descripción:** Plataforma inclusiva para mujeres y personas con discapacidades en tech, con features compartidas (ej. perfiles accesibles, matchmaking equitativo).
