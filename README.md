@@ -1,9 +1,9 @@
-# TalentMX: Plataforma de Vinculación Laboral
+# TalentoMX: Plataforma de Vinculación Laboral
 
 ## 📋 Ficha Técnica del Producto
 
 ### Información General
-- **Nombre del producto:** TalentMX
+- **Nombre del producto:** TalentoMX
 - **Tipo de producto digital:** Web App (Progressive Web Application)
 - **Sector estratégico del Plan México:** Desarrollo de Talento y Competitividad Digital
 
@@ -20,14 +20,14 @@ En la economía digital mexicana existe una **brecha crítica** entre:
 - **Tiempo promedio de vinculación:** 2-3 meses (vs. objetivo nacional de 1 mes)
 
 ### Solución Propuesta
-**TalentMX** es una plataforma digital que:
+**TalentoMX** es una plataforma digital que:
 - Conecta estudiantes con empleadores mediante matching inteligente
 - Visualiza oportunidades en sectores estratégicos del Plan México
 - Reduce el tiempo de vinculación mediante algoritmos de compatibilidad
 - Facilita registro de competencias y seguimiento de oportunidades
 
 ### Resumen Ejecutivo
-TalentMX transforma la vinculación laboral tradicional en un proceso digital eficiente. La plataforma conecta talento especializado de la Universidad Rosario Castellanos con empresas de sectores estratégicos mexicanos. Mediante análisis de competencias y oferta de empleo, reduce significativamente el tiempo de matching y acelera la integración de profesionales al mercado laboral. Alineado con los objetivos del Plan México 2024, TalentMX contribuye a formar 150K profesionistas anuales en cadenas de valor estratégicas.
+TalentoMX transforma la vinculación laboral tradicional en un proceso digital eficiente. La plataforma conecta talento especializado de la Universidad Rosario Castellanos con empresas de sectores estratégicos mexicanos. Mediante análisis de competencias y oferta de empleo, reduce significativamente el tiempo de matching y acelera la integración de profesionales al mercado laboral. Alineado con los objetivos del Plan México 2024, TalentMX contribuye a formar 150K profesionistas anuales en cadenas de valor estratégicas.
 
 ### Público Objetivo y Segmento de Mercado
 - **Segmento 1:** Estudiantes/egresados de la Universidad Rosario Castellanos
