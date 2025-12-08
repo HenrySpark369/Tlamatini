@@ -9,6 +9,8 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import json
 from datetime import datetime
+import pandas as pd
+import os
 
 # Importar módulos de matching
 from modules.data_models import Estudiante, Oferta, ResultadoMatching
@@ -48,64 +50,53 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ============ DATOS SIMULADOS (MVP - Hardcoding Táctico) ============
+# ============ CARGA DINÁMICA DE DATOS DESDE CSV ============
 
-ESTUDIANTES_DB = {
-    "E001": Estudiante(
-        id="E001",
-        nombre="Carlos Mendoza",
-        carrera="Ingeniería en Electrónica",
-        semestre=8,
-        competencias=["Python", "Control de procesos", "Electrónica", "PCB design"],
-        sector_interes="semiconductores"
-    ),
-    "E002": Estudiante(
-        id="E002",
-        nombre="Ana García",
-        carrera="Ingeniería Mecatrónica",
-        semestre=6,
-        competencias=["C++", "Robótica", "PLC", "Automatización industrial"],
-        sector_interes="automotriz"
-    ),
-    "E003": Estudiante(
-        id="E003",
-        nombre="Miguel López",
-        carrera="Ingeniería Aeronáutica",
-        semestre=9,
-        competencias=["CATIA", "Dinámica de fluidos", "Composite materials", "Análisis estructural"],
-        sector_interes="aeroespacial"
-    )
-}
+def cargar_estudiantes_csv() -> Dict[str, Estudiante]:
+    """Carga estudiantes desde CSV"""
+    csv_path = os.path.join(os.path.dirname(__file__), "../data/students.csv")
+    df = pd.read_csv(csv_path)
+    estudiantes = {}
+    for _, row in df.iterrows():
+        competencias = [c.strip() for c in str(row['competencias']).split('|')]
+        estudiante = Estudiante(
+            id=str(row['id']),
+            nombre=str(row['nombre']),
+            carrera=str(row['carrera']),
+            semestre=int(row['semestre']),
+            competencias=competencias,
+            sector_interes=str(row['sector_interes'])
+        )
+        estudiantes[estudiante.id] = estudiante
+    print(f"✅ Cargados {len(estudiantes)} estudiantes desde CSV")
+    return estudiantes
 
-OFERTAS_DB = {
-    "O001": Oferta(
-        id="O001",
-        empresa="Nexperia (Semiconductores)",
-        puesto="Ingeniero de Procesos",
-        competencias_requeridas=["Python", "Control de procesos", "Electrónica"],
-        sector_estrategico="semiconductores",
-        salario_usd=2500,
-        ubicacion="Guadalajara, Jalisco"
-    ),
-    "O002": Oferta(
-        id="O002",
-        empresa="Tesla Manufacturing",
-        puesto="Especialista en Automatización",
-        competencias_requeridas=["C++", "PLC", "Robótica", "Automatización industrial"],
-        sector_estrategico="automotriz",
-        salario_usd=3000,
-        ubicacion="CDMX"
-    ),
-    "O003": Oferta(
-        id="O003",
-        empresa="Airbus Mexico",
-        puesto="Ingeniero Estructural",
-        competencias_requeridas=["CATIA", "Análisis estructural", "Composite materials"],
-        sector_estrategico="aeroespacial",
-        salario_usd=3500,
-        ubicacion="Querétaro"
-    )
-}
+def cargar_ofertas_csv() -> Dict[str, Oferta]:
+    """Carga ofertas desde CSV"""
+    csv_path = os.path.join(os.path.dirname(__file__), "../data/jobs.csv")
+    df = pd.read_csv(csv_path)
+    ofertas = {}
+    for _, row in df.iterrows():
+        competencias = [c.strip() for c in str(row['competencias_requeridas']).split('|')]
+        oferta = Oferta(
+            id=str(row['id']),
+            empresa=str(row['empresa']),
+            puesto=str(row['puesto']),
+            competencias_requeridas=competencias,
+            sector_estrategico=str(row['sector_estrategico']),
+            salario_usd=int(row['salario_usd']),
+            ubicacion=str(row['ubicacion'])
+        )
+        ofertas[oferta.id] = oferta
+    print(f"✅ Cargadas {len(ofertas)} ofertas desde CSV")
+    return ofertas
+
+# Inicializar bases de datos desde CSV
+ESTUDIANTES_DB = cargar_estudiantes_csv()
+OFERTAS_DB = cargar_ofertas_csv()
+
+# ============ REGISTRO DE APLICACIONES ============
+APLICACIONES_REGISTRO: List[Dict[str, Any]] = []
 
 # ============ ENDPOINTS ============
 
@@ -186,12 +177,55 @@ async def calcular_score(estudiante_id: str, oferta_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calculando score: {str(e)}")
 
+@app.post("/candidatos/{estudiante_id}/aplicar/{oferta_id}")
+async def aplicar_oferta(estudiante_id: str, oferta_id: str):
+    """Registra la aplicación de un estudiante a una oferta"""
+    if estudiante_id not in ESTUDIANTES_DB:
+        raise HTTPException(status_code=404, detail="Estudiante no encontrado")
+    if oferta_id not in OFERTAS_DB:
+        raise HTTPException(status_code=404, detail="Oferta no encontrada")
+    
+    try:
+        estudiante = ESTUDIANTES_DB[estudiante_id]
+        oferta = OFERTAS_DB[oferta_id]
+        score = calcular_compatibilidad(estudiante.competencias, oferta.competencias_requeridas)
+        
+        # Registrar aplicación
+        aplicacion = {
+            "aplicacion_id": f"{estudiante_id}_{oferta_id}_{datetime.now().timestamp()}",
+            "estudiante_id": estudiante_id,
+            "estudiante_nombre": estudiante.nombre,
+            "oferta_id": oferta_id,
+            "empresa": oferta.empresa,
+            "puesto": oferta.puesto,
+            "compatibilidad": round(score * 100, 2),
+            "timestamp": datetime.now().isoformat()
+        }
+        APLICACIONES_REGISTRO.append(aplicacion)
+        
+        # Track evento
+        track_event("application_sent", {
+            "student_id": estudiante_id,
+            "offer_id": oferta_id,
+            "compatibility": round(score * 100, 2)
+        })
+        
+        return {
+            "status": "success",
+            "mensaje": "Aplicación registrada exitosamente",
+            "compatibilidad": round(score * 100, 2),
+            "aplicacion_id": aplicacion["aplicacion_id"]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al registrar aplicación: {str(e)}")
+
 @app.get("/stats")
 async def estadisticas():
     """Estadísticas del MVP"""
     return {
         "total_estudiantes": len(ESTUDIANTES_DB),
         "total_ofertas": len(OFERTAS_DB),
+        "total_aplicaciones": len(APLICACIONES_REGISTRO),
         "sectores_estrategicos": ["semiconductores", "automotriz", "aeroespacial"],
         "salario_promedio_usd": sum([o.salario_usd for o in OFERTAS_DB.values()]) / len(OFERTAS_DB),
         "timestamp": datetime.now().isoformat()

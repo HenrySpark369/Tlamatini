@@ -5,7 +5,7 @@
 
 // ============ CONFIGURACIÓN ============
 const API_URL = "http://localhost:8000";
-const MOCK_ENABLED = true; // Activar modo simulación
+const MOCK_ENABLED = false; // Conectado a API real
 
 let estudianteActual = null;
 let ofertasCache = [];
@@ -384,17 +384,51 @@ function mostrarError(mensaje) {
 }
 
 function aplicarOferta(ofertaId) {
-    // Mostrar notificación más elegante
-    const notification = document.createElement('div');
-    notification.className = 'fixed bottom-6 right-6 bg-success text-white px-6 py-3 rounded-lg shadow-elevated flex items-center gap-2 slide-in';
-    notification.innerHTML = '<i class="fas fa-check-circle"></i> Solicitud enviada. Revisaremos en 24h.';
-    document.body.appendChild(notification);
+    if (!estudianteActual) {
+        mostrarError("Por favor selecciona un estudiante primero");
+        return;
+    }
     
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transform = 'translateY(20px)';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    // Realizar POST a backend
+    fetch(`${API_URL}/candidatos/${estudianteActual.id}/aplicar/${ofertaId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+    })
+    .then(data => {
+        // Mostrar notificación elegante
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-6 right-6 bg-success text-white px-6 py-3 rounded-lg shadow-elevated flex items-center gap-2 slide-in';
+        notification.innerHTML = `<i class="fas fa-check-circle"></i> ✓ Solicitud enviada (${data.compatibilidad}% compatible)`;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+        
+        // Recargar estadísticas
+        cargarEstadisticas();
+    })
+    .catch(error => {
+        console.error("Error al aplicar:", error);
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-6 right-6 bg-red-500 text-white px-6 py-3 rounded-lg shadow-elevated flex items-center gap-2 slide-in';
+        notification.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error al enviar solicitud`;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    });
 }
 
 // ============ INICIALIZACIÓN ============
