@@ -249,10 +249,23 @@
     </footer>
 
     <script>
-        // Redireccionar al login si no está autenticado
+        // Check for demo mode via URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const isDemoMode = urlParams.has('demo') || urlParams.get('demo') === 'true';
+        
+        if (isDemoMode) {
+            // Set demo mode flag in localStorage temporarily for this session
+            sessionStorage.setItem('DEMO_MODE', 'true');
+            sessionStorage.setItem('userType', 'estudiante');
+            sessionStorage.setItem('studentId', 'E001'); // Default demo student
+        }
+        
+        // Redireccionar al login si no está autenticado (unless in demo mode)
         document.addEventListener('DOMContentLoaded', () => {
-            const userType = localStorage.getItem('userType');
-            if (!userType) {
+            const userType = localStorage.getItem('userType') || sessionStorage.getItem('userType');
+            const demoMode = sessionStorage.getItem('DEMO_MODE');
+            
+            if (!userType && !demoMode) {
                 window.location.href = 'login.html';
             }
         });
