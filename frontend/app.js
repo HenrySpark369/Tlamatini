@@ -36,6 +36,78 @@ const MOCK_ESTUDIANTES = [
         semestre: 9,
         competencias: ["CATIA", "Dinámica de fluidos", "Composite materials", "Análisis estructural"],
         sector_interes: "aeroespacial"
+    },
+    {
+        id: "E004",
+        nombre: "Laura Santana",
+        carrera: "Ingeniería Ambiental",
+        semestre: 7,
+        competencias: ["Python", "Análisis de datos", "Sostenibilidad", "SIG"],
+        sector_interes: "energia_limpia"
+    },
+    {
+        id: "E005",
+        nombre: "Diego Ruiz",
+        carrera: "Ingeniería Mecánica",
+        semestre: 5,
+        competencias: ["CAD", "Diseño industrial", "Simulación FEA", "Soldadura"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E006",
+        nombre: "Sofia Chen",
+        carrera: "Ingeniería en Sistemas",
+        semestre: 10,
+        competencias: ["Java", "Spring Boot", "SQL", "Cloud", "AWS"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E007",
+        nombre: "Ricardo Flores",
+        carrera: "Ingeniería Eléctrica",
+        semestre: 8,
+        competencias: ["Control digital", "MATLAB", "Simulink", "Power systems"],
+        sector_interes: "energia_limpia"
+    },
+    {
+        id: "E008",
+        nombre: "María Rodríguez",
+        carrera: "Ingeniería Química",
+        semestre: 6,
+        competencias: ["Procesos químicos", "Control de calidad", "Nanotecnología", "R&D"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E009",
+        nombre: "Juan Pablo Moreno",
+        carrera: "Ingeniería Civil",
+        semestre: 4,
+        competencias: ["BIM", "Autocad", "Gestión de proyectos", "Estructuras"],
+        sector_interes: "otro"
+    },
+    {
+        id: "E010",
+        nombre: "Alexandra Vega",
+        carrera: "Ingeniería en Telecom",
+        semestre: 9,
+        competencias: ["C", "Redes", "5G", "Programación embebida"],
+        sector_interes: "semiconductores"
+    },
+    {
+        id: "E011",
+        nombre: "Fernando Santos",
+        carrera: "Ingeniería Mecatrónica",
+        semestre: 7,
+        competencias: ["Arduino", "IoT", "Python", "Machine Learning", "Visión artificial"],
+        sector_interes: "automotriz"
+    },
+    {
+        id: "E012",
+        nombre: "Valeria López",
+        carrera: "Ingeniería Aeronáutica",
+        semestre: 8,
+        competencias: ["CATIA", "Dinámica de vuelo", "Aerodinámica", "Composite design"],
+        sector_interes: "aeroespacial"
     }
 ];
 
@@ -65,6 +137,114 @@ const MOCK_OFERTAS = [
         competencias_requeridas: ["CATIA", "Análisis estructural", "Composite materials"],
         sector_estrategico: "aeroespacial",
         salario_usd: 3500,
+        ubicacion: "Querétaro"
+    },
+    {
+        id: "O004",
+        empresa: "Siemens Energy",
+        puesto: "Ingeniero de Control",
+        competencias_requeridas: ["Control digital", "MATLAB", "Simulink", "Power systems"],
+        sector_estrategico: "energia_limpia",
+        salario_usd: 2800,
+        ubicacion: "Monterrey"
+    },
+    {
+        id: "O005",
+        empresa: "Intel Manufacturing",
+        puesto: "Especialista en PCB",
+        competencias_requeridas: ["Python", "Electrónica", "PCB design", "Soldadura"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3200,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O006",
+        empresa: "Ford México",
+        puesto: "Ingeniero de Diseño",
+        competencias_requeridas: ["CAD", "Diseño industrial", "Simulación FEA"],
+        sector_estrategico: "automotriz",
+        salario_usd: 2900,
+        ubicacion: "Hermosillo"
+    },
+    {
+        id: "O007",
+        empresa: "Samsung Semiconductors",
+        puesto: "Ingeniero de Software",
+        competencias_requeridas: ["Java", "Python", "SQL", "AWS"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3600,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O008",
+        empresa: "Bombardier Aerospace",
+        puesto: "Ingeniero Aeronáutico",
+        competencias_requeridas: ["CATIA", "Dinámica de fluidos", "Composite materials"],
+        sector_estrategico: "aeroespacial",
+        salario_usd: 4000,
+        ubicacion: "Querétaro"
+    },
+    {
+        id: "O009",
+        empresa: "Enel Green Power",
+        puesto: "Ingeniero de Energías Renovables",
+        competencias_requeridas: ["Sostenibilidad", "SIG", "Análisis de datos", "Python"],
+        sector_estrategico: "energia_limpia",
+        salario_usd: 3100,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O010",
+        empresa: "General Motors",
+        puesto: "Especialista Mecánico",
+        competencias_requeridas: ["CAD", "Simulación FEA", "Automatización industrial"],
+        sector_estrategico: "automotriz",
+        salario_usd: 3300,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O011",
+        empresa: "Qualcomm Mexico",
+        puesto: "Ingeniero de Telecomunicaciones",
+        competencias_requeridas: ["C", "Redes", "5G", "Programación embebida"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3800,
+        ubicacion: "CDMX"
+    },
+    {
+        id: "O012",
+        empresa: "Boeing México",
+        puesto: "Ingeniero de Estructuras",
+        competencias_requeridas: ["CATIA", "Aerodinámica", "Composite design", "Análisis estructural"],
+        sector_estrategico: "aeroespacial",
+        salario_usd: 3900,
+        ubicacion: "Querétaro"
+    },
+    {
+        id: "O013",
+        empresa: "Eaton Corporation",
+        puesto: "Ingeniero de Automatización",
+        competencias_requeridas: ["PLC", "C++", "Robótica", "Control digital"],
+        sector_estrategico: "automotriz",
+        salario_usd: 2700,
+        ubicacion: "Monterrey"
+    },
+    {
+        id: "O014",
+        empresa: "IMEC Advanced Nano",
+        puesto: "Investigador de Nanotecnología",
+        competencias_requeridas: ["Procesos químicos", "Nanotecnología", "R&D", "Control de calidad"],
+        sector_estrategico: "semiconductores",
+        salario_usd: 3400,
+        ubicacion: "Guadalajara"
+    },
+    {
+        id: "O015",
+        empresa: "Rolls-Royce México",
+        puesto: "Ingeniero Senior Aéreo",
+        competencias_requeridas: ["CATIA", "Dinámica de vuelo", "Composite design", "Análisis estructural"],
+        sector_estrategico: "aeroespacial",
+        salario_usd: 4200,
         ubicacion: "Querétaro"
     }
 ];

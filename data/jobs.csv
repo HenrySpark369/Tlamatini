@@ -2,3 +2,15 @@ id,empresa,puesto,competencias_requeridas,sector_estrategico,salario_usd,ubicaci
 O001,Nexperia (Semiconductores),Ingeniero de Procesos,Python|Control de procesos|Electrónica,semiconductores,2500,Guadalajara
 O002,Tesla Manufacturing,Especialista en Automatización,C++|PLC|Robótica|Automatización industrial,automotriz,3000,CDMX
 O003,Airbus Mexico,Ingeniero Estructural,CATIA|Análisis estructural|Composite materials,aeroespacial,3500,Querétaro
+O004,Siemens Energy,Ingeniero de Control,Control digital|MATLAB|Simulink|Power systems,energia_limpia,2800,Monterrey
+O005,Intel Manufacturing,Especialista en PCB,Python|Electrónica|PCB design|Soldadura,semiconductores,3200,Guadalajara
+O006,Ford México,Ingeniero de Diseño,CAD|Diseño industrial|Simulación FEA,automotriz,2900,Hermosillo
+O007,Samsung Semiconductors,Ingeniero de Software,Java|Python|SQL|AWS,semiconductores,3600,CDMX
+O008,Bombardier Aerospace,Ingeniero Aeronáutico,CATIA|Dinámica de fluidos|Composite materials,aeroespacial,4000,Querétaro
+O009,Enel Green Power,Ingeniero de Energías Renovables,Sostenibilidad|SIG|Análisis de datos|Python,energia_limpia,3100,Guadalajara
+O010,General Motors,Especialista Mecánico,CAD|Simulación FEA|Automatización industrial,automotriz,3300,CDMX
+O011,Qualcomm Mexico,Ingeniero de Telecomunicaciones,C|Redes|5G|Programación embebida,semiconductores,3800,CDMX
+O012,Boeing México,Ingeniero de Estructuras,CATIA|Aerodinámica|Composite design|Análisis estructural,aeroespacial,3900,Querétaro
+O013,Eaton Corporation,Ingeniero de Automatización,PLC|C++|Robótica|Control digital,automotriz,2700,Monterrey
+O014,IMEC Advanced Nano,Investigador de Nanotecnología,Procesos químicos|Nanotecnología|R&D|Control de calidad,semiconductores,3400,Guadalajara
+O015,Rolls-Royce México,Ingeniero Senior Aéreo,CATIA|Dinámica de vuelo|Composite design|Análisis estructural,aeroespacial,4200,Querétaro
