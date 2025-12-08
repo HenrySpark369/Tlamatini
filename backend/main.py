@@ -15,6 +15,7 @@ import os
 # Importar módulos de matching
 from modules.data_models import Estudiante, Oferta, ResultadoMatching
 from modules.matching import calcular_compatibilidad, obtener_matches
+from modules.matching_svd import inicializar_svd, obtener_matches_svd
 
 # ============ SISTEMA DE TRACKING DE EVENTOS ============
 EVENTS_LOG: List[Dict[str, Any]] = []
@@ -95,6 +96,10 @@ def cargar_ofertas_csv() -> Dict[str, Oferta]:
 ESTUDIANTES_DB = cargar_estudiantes_csv()
 OFERTAS_DB = cargar_ofertas_csv()
 
+# Inicializar engine SVD
+print("🚀 Inicializando motor de matching SVD...")
+SVD_ENGINE = inicializar_svd(ESTUDIANTES_DB, OFERTAS_DB)
+
 # ============ REGISTRO DE APLICACIONES ============
 APLICACIONES_REGISTRO: List[Dict[str, Any]] = []
 
@@ -154,6 +159,39 @@ async def obtener_matches_endpoint(estudiante_id: str):
         return matches
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en algoritmo de matching: {str(e)}")
+
+@app.get("/matching/svd/{estudiante_id}", response_model=List[ResultadoMatching])
+async def obtener_matches_svd_endpoint(estudiante_id: str):
+    """
+    Algoritmo de matching SVD: encuentra las mejores ofertas usando decomposición en valores singulares.
+    
+    **Ventajas del SVD:**
+    - 10x más rápido que TF-IDF
+    - Detecta competencias relacionadas implícitamente
+    - Menos overfitting a similitudes exactas
+    - Mejor captura de patrones latentes
+    """
+    if estudiante_id not in ESTUDIANTES_DB:
+        raise HTTPException(status_code=404, detail="Estudiante no encontrado")
+    
+    try:
+        estudiante = ESTUDIANTES_DB[estudiante_id]
+        # Obtener índice del estudiante
+        estudiante_idx = list(ESTUDIANTES_DB.keys()).index(estudiante_id)
+        
+        matches = obtener_matches_svd(estudiante_idx, estudiante, OFERTAS_DB)
+        
+        # Track evento de match generado con SVD
+        track_event("match_generated_svd", {
+            "student_id": estudiante_id,
+            "num_matches": len(matches),
+            "sector": estudiante.sector_interes,
+            "algorithm": "SVD"
+        })
+        
+        return matches
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error en algoritmo SVD: {str(e)}")
 
 @app.post("/matching/score")
 async def calcular_score(estudiante_id: str, oferta_id: str):
