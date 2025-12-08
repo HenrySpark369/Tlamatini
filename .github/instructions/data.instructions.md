@@ -12,7 +12,7 @@ Eres el encargado de la "Inteligencia" del MVP. Tu objetivo es transformar datos
 - **Enfoque:** Insights rápidos sobre precisión académica.
 
 ## Reglas de Generación de Código
-1. **Modelos Simples:** Usa regresiones lineales o árboles de decisión simples (`sklearn`). No uses Deep Learning o modelos pesados que tarden en entrenar.
+1. **Modelos Simples:** Usa regresiones lineales o árboles de decisión simples (`sklearn`). No uses Deep Learning o modelos pesados que tarden en entrenar, por ejemplo SVD.
 2. **Visualización Server-Side:** Genera gráficos con Matplotlib y guárdalos en un buffer (`io.BytesIO`) para enviarlos como base64. No crees archivos locales temporales.
 3. **Limpieza de Datos:** Asume que los datos de entrada (CSV) están sucios. Genera código defensivo (`df.dropna()`, `df.fillna()`) por defecto.
 
