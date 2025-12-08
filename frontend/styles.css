@@ -1,4 +1,4 @@
-/* TalentMX - Estilos personalizados */
+/* TalentMX - Enterprise Design System */
 
 * {
     margin: 0;
@@ -7,70 +7,151 @@
 }
 
 :root {
-    --color-primary: #4f46e5;
-    --color-secondary: #06b6d4;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-danger: #ef4444;
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --secondary: #06b6d4;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-600: #475569;
+    --slate-900: #0f172a;
+    --dark: #1e293b;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: var(--slate-900);
     line-height: 1.6;
 }
 
-/* Badge de competencias */
-.badge {
+/* ===== BADGES ENTERPRISE ===== */
+
+.badge-primary {
     display: inline-block;
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--primary), #6366f1);
     color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin: 0.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    letter-spacing: 0.5px;
 }
 
-.badge.sector {
-    background-color: var(--color-secondary);
+.badge-enterprise {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec4899, #f43f5e);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.25);
+    letter-spacing: 0.5px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin: 0.25rem;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.15);
+    letter-spacing: 0.3px;
 }
 
 .badge.success {
-    background-color: var(--color-success);
+    background: linear-gradient(135deg, var(--success), #059669);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
 }
 
-/* Tarjeta de matching */
+.badge.warning {
+    background: linear-gradient(135deg, var(--warning), #d97706);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+}
+
+/* ===== MATCH CARD ENTERPRISE ===== */
+
 .match-card {
-    border-left: 4px solid var(--color-primary);
-    background-color: #f9fafb;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    padding: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(99, 102, 241, 0.05));
+    transition: width 0.4s ease;
+    z-index: 0;
+}
+
+.match-card:hover::before {
+    width: 100%;
 }
 
 .match-card:hover {
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
-    transform: translateY(-2px);
+    border-left-color: var(--primary);
+    box-shadow: 0 16px 32px rgba(79, 70, 229, 0.15);
+    transform: translateY(-4px);
+}
+
+.match-card * {
+    position: relative;
+    z-index: 1;
 }
 
 .match-card.high {
-    border-left-color: var(--color-success);
+    border-left-color: var(--success);
+}
+
+.match-card.high:hover {
+    box-shadow: 0 16px 32px rgba(16, 185, 129, 0.15);
 }
 
 .match-card.medium {
-    border-left-color: var(--color-warning);
+    border-left-color: var(--warning);
+}
+
+.match-card.medium:hover {
+    box-shadow: 0 16px 32px rgba(245, 158, 11, 0.15);
 }
 
 .match-card.low {
-    border-left-color: var(--color-danger);
+    border-left-color: var(--danger);
 }
 
-/* Barra de progreso de compatibilidad */
+.match-card.low:hover {
+    box-shadow: 0 16px 32px rgba(239, 68, 68, 0.15);
+}
+
+/* ===== BARRA DE COMPATIBILIDAD ===== */
+
 .compatibility-bar {
-    height: 8px;
-    background-color: #e5e7eb;
+    height: 6px;
+    background-color: var(--slate-200);
     border-radius: 9999px;
     overflow: hidden;
     margin: 0.5rem 0;
@@ -78,20 +159,106 @@ body {
 
 .compatibility-bar-fill {
     height: 100%;
-    background: linear-gradient(to right, #10b981, var(--color-primary));
+    background: linear-gradient(to right, var(--success) 0%, var(--primary) 100%);
     border-radius: 9999px;
-    transition: width 0.3s ease;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animación de carga */
-.loading {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--color-primary);
-    animation: pulse 1.5s infinite;
+/* ===== BUTTONS ENTERPRISE ===== */
+
+.btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: left 0.4s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.4);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== CANDIDATE CARDS ===== */
+
+.student-item {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+    background-color: white;
+    position: relative;
+}
+
+.student-item:hover {
+    background-color: var(--slate-50);
+    border-left-color: var(--primary);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.student-item.active {
+    background: linear-gradient(135deg, #eef2ff, #f3f0ff);
+    border-left-color: var(--primary);
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.12);
+}
+
+/* ===== ESTADOS DE CONEXIÓN ===== */
+
+.status-online {
+    color: var(--success);
+    background-color: #ecfdf5;
+}
+
+.status-offline {
+    color: var(--danger);
+    background-color: #fef2f2;
+}
+
+/* ===== ANIMACIONES ===== */
 
 @keyframes pulse {
     0%, 100% {
@@ -102,66 +269,104 @@ body {
     }
 }
 
-/* Botón interactivo */
-.btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #4338ca;
-    transform: scale(1.05);
-}
-
-.btn-primary:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: scale(1);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .container {
-        padding: 1rem;
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Estados de conexión */
-.status-online {
-    color: #10b981;
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
-.status-offline {
-    color: #ef4444;
+.slide-in {
+    animation: slideIn 0.3s ease-out;
 }
 
-/* Tarjeta de estudiante */
-.student-item {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background-color: #f3f4f6;
-    border-left: 3px solid transparent;
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
-.student-item:hover {
-    background-color: #e5e7eb;
-    border-left-color: var(--color-primary);
+::-webkit-scrollbar-track {
+    background: var(--slate-50);
 }
 
-.student-item.active {
-    background-color: #eef2ff;
-    border-left-color: var(--color-primary);
-    font-weight: 600;
+::-webkit-scrollbar-thumb {
+    background: var(--slate-300);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--slate-400);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 8rem;
+    }
+
+    .grid {
+        gap: 1rem;
+    }
+
+    .match-card {
+        padding: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ===== UTILIDADES ===== */
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary), #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-smooth {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-elevated {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== TRANSICIONES SUAVES ===== */
+
+* {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* ===== FOCUS STATES ===== */
+
+button:focus,
+a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ===== PLACEHOLDER ===== */
+
+::placeholder {
+    color: var(--slate-600);
+    opacity: 0.6;
 }

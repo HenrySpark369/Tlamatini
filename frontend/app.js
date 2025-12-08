@@ -178,10 +178,13 @@ function calcularMatchesMock(estudiante, ofertas) {
  */
 function renderizarEstudiantes(estudiantes) {
     const container = document.getElementById("estudiantesList");
-    container.innerHTML = estudiantes.map(est => `
-        <div class="student-item" onclick="seleccionarEstudiante('${est.id}')">
-            <div class="font-semibold text-gray-900">${est.nombre}</div>
-            <div class="text-xs text-gray-500">${est.carrera}</div>
+    container.innerHTML = estudiantes.map((est, idx) => `
+        <div class="student-item slide-in" data-id="${est.id}" onclick="seleccionarEstudiante('${est.id}')" style="animation-delay: ${idx * 0.05}s">
+            <div class="font-bold text-slate-900">${est.nombre}</div>
+            <div class="text-xs text-slate-600 mt-1 font-medium">${est.carrera}</div>
+            <div class="flex gap-2 mt-2">
+                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded font-semibold">Sem ${est.semestre}</span>
+            </div>
         </div>
     `).join("");
 }
@@ -195,12 +198,13 @@ function seleccionarEstudiante(estudianteId) {
     
     estudianteActual = estudiante;
     
-    // Actualizar vista de perfil
+    // Actualizar perfil
     document.getElementById("perfilEstudiante").classList.remove("hidden");
     document.getElementById("nombreEstudiante").textContent = estudiante.nombre;
-    document.getElementById("carreraEstudiante").textContent = estudiante.carrera;
+    document.getElementById("carreraEstudiante").textContent = `${estudiante.carrera}`;
     document.getElementById("semestreEstudiante").textContent = estudiante.semestre;
-    document.getElementById("sectorEstudiante").textContent = estudiante.sector_interes || "N/A";
+    document.getElementById("sectorEstudiante").textContent = (estudiante.sector_interes || "N/A").toUpperCase();
+    document.getElementById("progressBar").style.width = `${(estudiante.semestre / 12) * 100}%`;
     
     // Competencias
     const competenciasDiv = document.getElementById("competenciasEstudiante");
@@ -210,7 +214,7 @@ function seleccionarEstudiante(estudianteId) {
     
     // Actualizar interfaz
     document.querySelectorAll(".student-item").forEach(el => el.classList.remove("active"));
-    event.target.closest(".student-item")?.classList.add("active");
+    document.querySelector(`[data-id="${estudianteId}"]`)?.classList.add("active");
     
     // Cargar matches
     document.getElementById("matchingResults").innerHTML = '<div class="loading"></div> Calculando matches...';
@@ -224,57 +228,66 @@ function renderizarMatches(matches) {
     const container = document.getElementById("matchingResults");
     
     if (matches.length === 0) {
-        container.innerHTML = '<p class="text-gray-500 text-center py-8">No hay matches disponibles</p>';
+        container.innerHTML = '<div class="text-center py-12"><i class="fas fa-search text-3xl text-slate-300 mb-3"></i><p class="text-slate-600 text-sm">No hay matches disponibles para este perfil</p></div>';
         return;
     }
     
-    container.innerHTML = matches.map(match => {
+    container.innerHTML = matches.map((match, idx) => {
         const compatLevel = match.compatibilidad >= 70 ? "high" : 
                           match.compatibilidad >= 50 ? "medium" : "low";
         
         return `
-            <div class="match-card ${compatLevel}">
-                <div class="flex justify-between items-start mb-2">
-                    <div>
-                        <h3 class="font-bold text-gray-900">${match.puesto}</h3>
-                        <p class="text-sm text-gray-600">${match.empresa}</p>
+            <div class="match-card ${compatLevel} slide-in" style="animation-delay: ${idx * 0.1}s">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <h3 class="font-bold text-slate-900 text-lg">${match.puesto}</h3>
+                        <p class="text-sm text-slate-600 mt-1">${match.empresa}</p>
                     </div>
-                    <div class="text-right">
-                        <div class="text-2xl font-bold text-indigo-600">${match.compatibilidad}%</div>
-                        <div class="compatibility-bar">
-                            <div class="compatibility-bar-fill" style="width: ${match.compatibilidad}%"></div>
-                        </div>
+                    <div class="text-right ml-4">
+                        <div class="text-3xl font-bold text-primary">${match.compatibilidad}%</div>
+                        <p class="text-xs text-slate-600 mt-1">Compatibilidad</p>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
+                <div class="compatibility-bar mb-4">
+                    <div class="compatibility-bar-fill" style="width: ${match.compatibilidad}%"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm pb-4 border-b border-slate-200">
                     <div>
-                        <p class="text-gray-600">💰 Salario</p>
-                        <p class="font-semibold text-green-600">$${match.salario_usd.toLocaleString()}/mes</p>
+                        <p class="text-slate-600 font-medium mb-1"><i class="fas fa-dollar-sign mr-1"></i>Salario</p>
+                        <p class="font-semibold text-success">$${match.salario_usd.toLocaleString()}/mes</p>
                     </div>
                     <div>
-                        <p class="text-gray-600">📍 Ubicación</p>
-                        <p class="font-semibold text-gray-900">${match.ubicacion}</p>
+                        <p class="text-slate-600 font-medium mb-1"><i class="fas fa-map-marker-alt mr-1"></i>Ubicación</p>
+                        <p class="font-semibold text-slate-900">${match.ubicacion}</p>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 mb-3">
+                <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                        <p class="text-xs font-semibold text-green-700 mb-1">✓ Competencias Match</p>
+                        <p class="text-xs font-semibold text-slate-700 mb-2 flex items-center gap-1">
+                            <i class="fas fa-check-circle text-success"></i>Tus Competencias
+                        </p>
                         <div class="flex flex-wrap gap-1">
-                            ${match.competencias_coincidentes.map(c => `<span class="badge success">${c}</span>`).join("")}
+                            ${match.competencias_coincidentes.length > 0 
+                                ? match.competencias_coincidentes.map(c => `<span class="badge success">${c}</span>`).join("")
+                                : '<span class="text-xs text-slate-600">Ninguna coincide aún</span>'
+                            }
                         </div>
                     </div>
                     <div>
-                        <p class="text-xs font-semibold text-amber-700 mb-1">⚠️ A Desarrollar</p>
+                        <p class="text-xs font-semibold text-slate-700 mb-2 flex items-center gap-1">
+                            <i class="fas fa-book text-warning"></i>A Desarrollar
+                        </p>
                         <div class="flex flex-wrap gap-1">
-                            ${match.competencias_faltantes.map(c => `<span class="badge" style="background-color: #f59e0b;">${c}</span>`).join("")}
+                            ${match.competencias_faltantes.map(c => `<span class="badge warning">${c}</span>`).join("")}
                         </div>
                     </div>
                 </div>
                 
-                <button class="btn btn-primary w-full text-sm" onclick="aplicarOferta('${match.oferta_id}')">
-                    Solicitar Oportunidad
+                <button class="btn btn-primary w-full" onclick="aplicarOferta('${match.oferta_id}')">
+                    <i class="fas fa-paper-plane"></i> Solicitar Oportunidad
                 </button>
             </div>
         `;
@@ -305,13 +318,13 @@ async function cargarEstadisticas() {
 // ============ UTILIDADES ============
 
 function setStatusOnline() {
-    document.getElementById("status").className = "status-online font-semibold";
-    document.getElementById("status").textContent = "API Conectada ✓";
+    document.getElementById("status").className = "text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700";
+    document.getElementById("status").innerHTML = '<i class="fas fa-circle text-green-500 mr-1" style="font-size: 0.6rem;"></i> API Conectada';
 }
 
 function setStatusOffline() {
-    document.getElementById("status").className = "status-offline font-semibold";
-    document.getElementById("status").textContent = "Modo Simulación (sin API)";
+    document.getElementById("status").className = "text-xs font-semibold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700";
+    document.getElementById("status").innerHTML = '<i class="fas fa-circle text-yellow-500 mr-1" style="font-size: 0.6rem;"></i> Modo Simulación';
 }
 
 function mostrarError(mensaje) {
@@ -320,7 +333,17 @@ function mostrarError(mensaje) {
 }
 
 function aplicarOferta(ofertaId) {
-    alert(`✅ Solicitud enviada para oferta ${ofertaId}. Tu solicitud será revisada en 24 horas.`);
+    // Mostrar notificación más elegante
+    const notification = document.createElement('div');
+    notification.className = 'fixed bottom-6 right-6 bg-success text-white px-6 py-3 rounded-lg shadow-elevated flex items-center gap-2 slide-in';
+    notification.innerHTML = '<i class="fas fa-check-circle"></i> Solicitud enviada. Revisaremos en 24h.';
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(20px)';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
 }
 
 // ============ INICIALIZACIÓN ============

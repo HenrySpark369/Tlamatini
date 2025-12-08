@@ -3,95 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TalentMX - Vinculación Laboral Plan México</title>
+    <title>TalentMX - Plataforma de Vinculación Laboral Enterprise</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-        
-        <!-- Header -->
-        <header class="mb-8">
-            <div class="flex items-center justify-between">
+<body class="bg-slate-900 text-slate-900">
+    
+    <!-- Navbar Premium -->
+    <nav class="fixed top-0 w-full bg-white backdrop-blur-sm shadow-lg z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-black text-xl">T</span>
+                </div>
                 <div>
-                    <h1 class="text-4xl font-bold text-indigo-900 mb-2">TalentMX 🚀</h1>
-                    <p class="text-lg text-gray-700">Plataforma de Vinculación Laboral - Plan México 2024</p>
-                </div>
-                <div class="text-right text-sm text-gray-600">
-                    <p>🇲🇽 Hecho en México</p>
-                    <p id="status" class="text-green-600 font-semibold">API Conectada ✓</p>
+                    <h1 class="text-2xl font-black text-slate-900 tracking-tight">TalentMX</h1>
+                    <p class="text-xs text-slate-500 font-semibold">ENTERPRISE TALENT PLATFORM</p>
                 </div>
             </div>
-        </header>
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg border border-slate-200">
+                    <i class="fas fa-server text-indigo-600"></i>
+                    <span class="text-xs font-semibold text-slate-600">Sector Estratégico</span>
+                </div>
+                <span id="status" class="text-xs font-bold px-4 py-2 rounded-lg bg-emerald-100 text-emerald-700 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></span> ONLINE
+                </span>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Contenedor Principal -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Main Content -->
+    <main class="pt-28 pb-16 bg-gradient-to-b from-slate-50 to-slate-100">
+        <div class="max-w-7xl mx-auto px-8">
             
-            <!-- Panel Izquierdo: Selector de Estudiante -->
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-4">👨‍🎓 Estudiantes</h2>
+            <!-- Hero Section Enterprise -->
+            <div class="mb-16">
+                <div class="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 rounded-2xl p-12 text-white shadow-2xl border border-indigo-700 relative overflow-hidden">
+                    <!-- Efecto de fondo -->
+                    <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-600 rounded-full opacity-10 blur-3xl"></div>
+                    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
                     
-                    <div id="estudiantesList" class="space-y-2">
-                        <div class="text-gray-500 text-sm">Cargando estudiantes...</div>
-                    </div>
-                    
-                    <!-- Perfil del Estudiante Seleccionado -->
-                    <div id="perfilEstudiante" class="mt-6 p-4 bg-indigo-50 rounded-lg hidden">
-                        <h3 id="nombreEstudiante" class="font-bold text-indigo-900 mb-2"></h3>
-                        <div class="text-sm space-y-1 text-gray-700">
-                            <p><strong>Carrera:</strong> <span id="carreraEstudiante"></span></p>
-                            <p><strong>Semestre:</strong> <span id="semestreEstudiante"></span></p>
-                            <p><strong>Sector Interés:</strong> <span id="sectorEstudiante" class="badge"></span></p>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-xs font-semibold text-gray-600 mb-2">Competencias:</p>
-                            <div id="competenciasEstudiante" class="flex flex-wrap gap-1"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <div class="inline-block mb-4">
+                                    <span class="text-xs font-bold text-indigo-300 tracking-widest">PLATAFORMA DIGITAL</span>
+                                </div>
+                                <h2 class="text-4xl font-black mb-3 leading-tight">Conecta Talento Estratégico</h2>
+                                <p class="text-lg text-indigo-100 max-w-2xl">Plataforma inteligente de matching para sectores de alto valor: semiconductores, automotriz y aeroespacial</p>
+                            </div>
+                            <div class="text-8xl opacity-20 mt-2">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Panel Central: Resultados de Matching -->
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-4">💼 Oportunidades Recomendadas</h2>
-                    
-                    <div id="matchingResults" class="space-y-4">
-                        <div class="text-gray-500 text-sm text-center py-8">Selecciona un estudiante para ver sus mejores oportunidades</div>
+            <!-- Grid Principal -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- Sidebar: Candidatos -->
+                <div class="lg:col-span-1">
+                    <!-- Panel de Búsqueda de Candidatos -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                        <!-- Header Premium -->
+                        <div class="bg-gradient-to-r from-slate-900 to-indigo-900 p-6 text-white border-b border-slate-700">
+                            <h3 class="font-black text-lg flex items-center gap-3">
+                                <span class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-white"></i>
+                                </span>
+                                CANDIDATOS
+                            </h3>
+                            <p class="text-xs text-indigo-200 mt-2 font-semibold">UNIVERSIDAD ROSARIO CASTELLANOS</p>
+                        </div>
+                        
+                        <!-- Lista de Candidatos -->
+                        <div id="estudiantesList" class="divide-y divide-slate-100 max-h-96 overflow-y-auto">
+                            <div class="p-6 text-slate-500 text-sm text-center">
+                                <i class="fas fa-spinner fa-spin text-indigo-600"></i>
+                                <p class="mt-2">Cargando candidatos...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card de Perfil Detallado -->
+                    <div id="perfilEstudiante" class="mt-8 bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hidden">
+                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 border-b border-slate-200">
+                            <h4 id="nombreEstudiante" class="font-black text-slate-900 text-xl mb-1"></h4>
+                            <p id="carreraEstudiante" class="text-sm text-slate-600 font-semibold"></p>
+                        </div>
+                        
+                        <div class="p-6 space-y-5">
+                            <div class="bg-slate-50 rounded-lg p-4">
+                                <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Progreso Académico</p>
+                                <div class="flex items-center gap-3">
+                                    <div class="flex-1">
+                                        <div class="w-full bg-slate-200 rounded-full h-2">
+                                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" id="progressBar" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold text-slate-900"><span id="semestreEstudiante"></span>/12</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">Sector Objetivo</p>
+                                <span id="sectorEstudiante" class="badge-enterprise"></span>
+                            </div>
+                            
+                            <div>
+                                <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">Stack de Competencias</p>
+                                <div id="competenciasEstudiante" class="flex flex-wrap gap-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content: Job Matches -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                        <!-- Header Premium -->
+                        <div class="bg-gradient-to-r from-slate-900 to-indigo-900 p-6 text-white border-b border-slate-700">
+                            <h3 class="font-black text-lg flex items-center gap-3">
+                                <span class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-briefcase text-white"></i>
+                                </span>
+                                OPORTUNIDADES MATCHES
+                            </h3>
+                            <p class="text-xs text-slate-300 mt-2 font-semibold">Recomendaciones inteligentes por compatibilidad</p>
+                        </div>
+                        
+                        <!-- Results -->
+                        <div id="matchingResults" class="p-8 space-y-6 max-h-96 overflow-y-auto">
+                            <div class="text-center py-16 text-slate-500">
+                                <i class="fas fa-arrow-left text-5xl mb-4 opacity-20"></i>
+                                <p class="text-sm font-semibold">Selecciona un candidato para ver matches</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Dashboard -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl transition group">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Candidatos</p>
+                            <p class="text-3xl font-black text-indigo-600" id="statEstudiantes">-</p>
+                        </div>
+                        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-users text-indigo-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl transition group">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Posiciones</p>
+                            <p class="text-3xl font-black text-emerald-600" id="statOfertas">-</p>
+                        </div>
+                        <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-briefcase text-emerald-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl transition group">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Salario Promedio</p>
+                            <p class="text-3xl font-black text-purple-600" id="statSalario">-</p>
+                        </div>
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-dollar-sign text-purple-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl transition group">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Sectores</p>
+                            <p class="text-3xl font-black text-blue-600">3</p>
+                        </div>
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-layer-group text-blue-600 text-xl"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <!-- Panel de Estadísticas -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
-            <div class="bg-white rounded-lg shadow p-4">
-                <div class="text-3xl font-bold text-indigo-600" id="statEstudiantes">-</div>
-                <p class="text-gray-600 text-sm">Estudiantes</p>
+    <!-- Footer Enterprise -->
+    <footer class="bg-slate-900 text-slate-300 mt-20 border-t-2 border-indigo-600">
+        <div class="max-w-7xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-black">T</span>
+                        </div>
+                        <h4 class="font-black text-white">TalentMX</h4>
+                    </div>
+                    <p class="text-sm text-slate-400">Plataforma digital de matching inteligente para sectores estratégicos.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Sectores</h4>
+                    <ul class="text-sm space-y-2">
+                        <li><span class="text-indigo-400">•</span> Semiconductores</li>
+                        <li><span class="text-indigo-400">•</span> Automotriz</li>
+                        <li><span class="text-indigo-400">•</span> Aeroespacial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Alineación</h4>
+                    <ul class="text-sm space-y-2">
+                        <li><span class="text-emerald-400">✓</span> Plan México 2024</li>
+                        <li><span class="text-emerald-400">✓</span> Desarrollo de Talento</li>
+                        <li><span class="text-emerald-400">✓</span> Digitalización</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Sistema</h4>
+                    <p class="text-sm text-slate-400 mb-2">
+                        <span class="text-slate-500">API Endpoint:</span><br>
+                        <span id="apiUrl" class="font-mono text-indigo-400 text-xs">http://localhost:8000</span>
+                    </p>
+                    <div class="flex gap-2 mt-4">
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs font-mono text-slate-400">FastAPI</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs font-mono text-slate-400">Scikit-learn</span>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
-                <div class="text-3xl font-bold text-green-600" id="statOfertas">-</div>
-                <p class="text-gray-600 text-sm">Ofertas Activas</p>
-            </div>
-            <div class="bg-white rounded-lg shadow p-4">
-                <div class="text-3xl font-bold text-purple-600" id="statSalario">-</div>
-                <p class="text-gray-600 text-sm">Salario Promedio (USD)</p>
-            </div>
-            <div class="bg-white rounded-lg shadow p-4">
-                <div class="text-2xl font-bold text-blue-600">3</div>
-                <p class="text-gray-600 text-sm">Sectores Estratégicos</p>
+            <div class="border-t border-slate-800 pt-8 text-center">
+                <p class="text-xs text-slate-500">© 2024 TalentMX | Hackathón Plan México | Universidad Rosario Castellanos</p>
+                <p class="text-xs text-slate-600 mt-2">🇲🇽 HECHO EN MÉXICO | Transformando Talento en Oportunidades Estratégicas</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Footer -->
-        <footer class="mt-12 text-center text-gray-600 text-sm border-t pt-6">
-            <p>MVP TalentMX | Hackathón Plan México 2024 | Universidad Rosario Castellanos</p>
-            <p class="text-xs mt-2">API: <span id="apiUrl" class="font-mono">http://localhost:8000</span></p>
-        </footer>
-    </div>
-
+    <script>
+        // Redireccionar al login si no está autenticado
+        document.addEventListener('DOMContentLoaded', () => {
+            const userType = localStorage.getItem('userType');
+            if (!userType) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
     <script src="app.js"></script>
 </body>
 </html>
