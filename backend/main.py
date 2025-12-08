@@ -5,12 +5,14 @@ Backend API (FastAPI) - MVP Hackathón Plan México
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import json
 from datetime import datetime
 import pandas as pd
 import os
+from pathlib import Path
 
 # Importar módulos de matching
 from modules.data_models import Estudiante, Oferta, ResultadoMatching
@@ -50,6 +52,18 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ============ SERVIR ARCHIVOS ESTÁTICOS DEL FRONTEND ============
+
+# Directorio del frontend relativo al backend
+FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
+
+# Montar archivos estáticos si el directorio existe
+if FRONTEND_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
+    print(f"✅ Frontend servido desde: {FRONTEND_DIR}")
+else:
+    print(f"⚠️ Directorio frontend no encontrado en: {FRONTEND_DIR}")
 
 # ============ CARGA DINÁMICA DE DATOS DESDE CSV ============
 
