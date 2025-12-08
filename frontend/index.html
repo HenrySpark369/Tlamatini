@@ -14,7 +14,7 @@
     <nav class="fixed top-0 w-full bg-white backdrop-blur-sm shadow-lg z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
+                <div class="w-12 h-12 bg-gradient-to-br from-red-900 via-amber-900 to-orange-800 rounded-xl flex items-center justify-center shadow-lg">
                     <span class="text-white font-black text-xl">T</span>
                 </div>
                 <div>
@@ -24,11 +24,11 @@
             </div>
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                    <i class="fas fa-server text-indigo-600"></i>
+                    <i class="fas fa-server text-red-900"></i>
                     <span class="text-xs font-semibold text-slate-600">Sector Estratégico</span>
                 </div>
-                <span id="status" class="text-xs font-bold px-4 py-2 rounded-lg bg-emerald-100 text-emerald-700 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></span> ONLINE
+                <span id="status" class="text-xs font-bold px-4 py-2 rounded-lg bg-orange-100 text-orange-700 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-orange-700 rounded-full animate-pulse"></span> ONLINE
                 </span>
             </div>
         </div>
@@ -40,19 +40,19 @@
             
             <!-- Hero Section Enterprise -->
             <div class="mb-16">
-                <div class="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 rounded-2xl p-12 text-white shadow-2xl border border-indigo-700 relative overflow-hidden">
+                <div class="bg-gradient-to-br from-slate-900 via-red-900 to-amber-900 rounded-2xl p-12 text-white shadow-2xl border border-red-800 relative overflow-hidden">
                     <!-- Efecto de fondo -->
-                    <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-600 rounded-full opacity-10 blur-3xl"></div>
-                    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+                    <div class="absolute -top-40 -right-40 w-80 h-80 bg-red-900 rounded-full opacity-10 blur-3xl"></div>
+                    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-amber-900 rounded-full opacity-10 blur-3xl"></div>
                     
                     <div class="relative z-10">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="inline-block mb-4">
-                                    <span class="text-xs font-bold text-indigo-300 tracking-widest">PLATAFORMA DIGITAL</span>
+                                    <span class="text-xs font-bold text-red-200 tracking-widest">PLATAFORMA DIGITAL</span>
                                 </div>
                                 <h2 class="text-4xl font-black mb-3 leading-tight">Conecta Talento Estratégico</h2>
-                                <p class="text-lg text-indigo-100 max-w-2xl">Plataforma inteligente de matching para sectores de alto valor: semiconductores, automotriz y aeroespacial</p>
+                                <p class="text-lg text-red-200 max-w-2xl">Plataforma inteligente de matching para sectores de alto valor: semiconductores, automotriz y aeroespacial</p>
                             </div>
                             <div class="text-8xl opacity-20 mt-2">
                                 <i class="fas fa-network-wired"></i>
@@ -70,20 +70,20 @@
                     <!-- Panel de Búsqueda de Candidatos -->
                     <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                         <!-- Header Premium -->
-                        <div class="bg-gradient-to-r from-slate-900 to-indigo-900 p-6 text-white border-b border-slate-700">
+                        <div class="bg-gradient-to-r from-slate-900 to-red-900 p-6 text-white border-b border-slate-700">
                             <h3 class="font-black text-lg flex items-center gap-3">
-                                <span class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
+                                <span class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-users text-white"></i>
                                 </span>
                                 CANDIDATOS
                             </h3>
-                            <p class="text-xs text-indigo-200 mt-2 font-semibold">UNIVERSIDAD ROSARIO CASTELLANOS</p>
+                            <p class="text-xs text-red-200 mt-2 font-semibold">UNIVERSIDAD ROSARIO CASTELLANOS</p>
                         </div>
                         
                         <!-- Lista de Candidatos -->
                         <div id="estudiantesList" class="divide-y divide-slate-100 max-h-96 overflow-y-auto">
                             <div class="p-6 text-slate-500 text-sm text-center">
-                                <i class="fas fa-spinner fa-spin text-indigo-600"></i>
+                                <i class="fas fa-spinner fa-spin text-red-900"></i>
                                 <p class="mt-2">Cargando candidatos...</p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
 
                     <!-- Card de Perfil Detallado -->
                     <div id="perfilEstudiante" class="mt-8 bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hidden">
-                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 border-b border-slate-200">
+                        <div class="bg-gradient-to-r from-red-50 to-orange-50 p-6 border-b border-slate-200">
                             <h4 id="nombreEstudiante" class="font-black text-slate-900 text-xl mb-1"></h4>
                             <p id="carreraEstudiante" class="text-sm text-slate-600 font-semibold"></p>
                         </div>
@@ -102,7 +102,7 @@
                                 <div class="flex items-center gap-3">
                                     <div class="flex-1">
                                         <div class="w-full bg-slate-200 rounded-full h-2">
-                                            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" id="progressBar" style="width: 70%"></div>
+                                            <div class="bg-gradient-to-r from-red-900 to-amber-700 h-2 rounded-full" id="progressBar" style="width: 70%"></div>
                                         </div>
                                     </div>
                                     <span class="text-sm font-bold text-slate-900"><span id="semestreEstudiante"></span>/12</span>
@@ -126,9 +126,9 @@
                 <div class="lg:col-span-3">
                     <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                         <!-- Header Premium -->
-                        <div class="bg-gradient-to-r from-slate-900 to-indigo-900 p-6 text-white border-b border-slate-700">
+                        <div class="bg-gradient-to-r from-slate-900 to-red-900 p-6 text-white border-b border-slate-700">
                             <h3 class="font-black text-lg flex items-center gap-3">
-                                <span class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                                <span class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-briefcase text-white"></i>
                                 </span>
                                 OPORTUNIDADES MATCHES
@@ -153,10 +153,10 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Candidatos</p>
-                            <p class="text-3xl font-black text-indigo-600" id="statEstudiantes">-</p>
+                            <p class="text-3xl font-black text-red-900" id="statEstudiantes">-</p>
                         </div>
-                        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-users text-indigo-600 text-xl"></i>
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-users text-red-900 text-xl"></i>
                         </div>
                     </div>
                 </div>
@@ -165,10 +165,10 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Posiciones</p>
-                            <p class="text-3xl font-black text-emerald-600" id="statOfertas">-</p>
+                            <p class="text-3xl font-black text-amber-700" id="statOfertas">-</p>
                         </div>
-                        <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-briefcase text-emerald-600 text-xl"></i>
+                        <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-briefcase text-amber-700 text-xl"></i>
                         </div>
                     </div>
                 </div>
@@ -177,10 +177,10 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Salario Promedio</p>
-                            <p class="text-3xl font-black text-purple-600" id="statSalario">-</p>
+                            <p class="text-3xl font-black text-red-900" id="statSalario">-</p>
                         </div>
-                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-dollar-sign text-purple-600 text-xl"></i>
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-dollar-sign text-red-900 text-xl"></i>
                         </div>
                     </div>
                 </div>
@@ -189,10 +189,10 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Sectores</p>
-                            <p class="text-3xl font-black text-blue-600">3</p>
+                            <p class="text-3xl font-black text-orange-700">3</p>
                         </div>
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-layer-group text-blue-600 text-xl"></i>
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                            <i class="fas fa-layer-group text-orange-700 text-xl"></i>
                         </div>
                     </div>
                 </div>
@@ -201,12 +201,12 @@
     </main>
 
     <!-- Footer Enterprise -->
-    <footer class="bg-slate-900 text-slate-300 mt-20 border-t-2 border-indigo-600">
+    <footer class="bg-slate-900 text-slate-300 mt-20 border-t-2 border-red-900">
         <div class="max-w-7xl mx-auto px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-red-900 rounded-lg flex items-center justify-center">
                             <span class="text-white font-black">T</span>
                         </div>
                         <h4 class="font-black text-white">TalentMX</h4>
@@ -216,24 +216,24 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Sectores</h4>
                     <ul class="text-sm space-y-2">
-                        <li><span class="text-indigo-400">•</span> Semiconductores</li>
-                        <li><span class="text-indigo-400">•</span> Automotriz</li>
-                        <li><span class="text-indigo-400">•</span> Aeroespacial</li>
+                        <li><span class="text-red-400">•</span> Semiconductores</li>
+                        <li><span class="text-red-400">•</span> Automotriz</li>
+                        <li><span class="text-red-400">•</span> Aeroespacial</li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Alineación</h4>
                     <ul class="text-sm space-y-2">
-                        <li><span class="text-emerald-400">✓</span> Plan México 2024</li>
-                        <li><span class="text-emerald-400">✓</span> Desarrollo de Talento</li>
-                        <li><span class="text-emerald-400">✓</span> Digitalización</li>
+                        <li><span class="text-orange-400">✓</span> Plan México 2024</li>
+                        <li><span class="text-orange-400">✓</span> Desarrollo de Talento</li>
+                        <li><span class="text-orange-400">✓</span> Digitalización</li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Sistema</h4>
                     <p class="text-sm text-slate-400 mb-2">
                         <span class="text-slate-500">API Endpoint:</span><br>
-                        <span id="apiUrl" class="font-mono text-indigo-400 text-xs">http://localhost:8000</span>
+                        <span id="apiUrl" class="font-mono text-red-400 text-xs">http://localhost:8000</span>
                     </p>
                     <div class="flex gap-2 mt-4">
                         <span class="px-2 py-1 bg-slate-800 rounded text-xs font-mono text-slate-400">FastAPI</span>

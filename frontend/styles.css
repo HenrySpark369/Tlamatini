@@ -7,18 +7,20 @@
 }
 
 :root {
-    --primary: #4f46e5;
-    --primary-dark: #4338ca;
-    --secondary: #06b6d4;
+    --primary: #991b1b;
+    --primary-dark: #7f1d1d;
+    --secondary: #b91c1c;
     --success: #10b981;
     --warning: #f59e0b;
-    --danger: #ef4444;
+    --danger: #dc2626;
     --slate-50: #f8fafc;
     --slate-100: #f1f5f9;
     --slate-200: #e2e8f0;
     --slate-600: #475569;
     --slate-900: #0f172a;
     --dark: #1e293b;
+    --wine: #7c2d12;
+    --wine-light: #c2410c;
 }
 
 html {

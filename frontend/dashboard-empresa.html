@@ -11,10 +11,10 @@
 <body class="bg-slate-50">
     
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 border-b-2 border-emerald-600">
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 border-b-2 border-red-900">
         <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-gradient-to-br from-red-900 to-amber-700 rounded-xl flex items-center justify-center">
                     <span class="text-white font-black">T</span>
                 </div>
                 <div>
@@ -25,14 +25,14 @@
             <div class="flex items-center gap-6">
                 <button class="relative">
                     <i class="fas fa-bell text-slate-600 text-xl"></i>
-                    <span class="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">5</span>
+                    <span class="absolute -top-2 -right-2 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center font-bold">5</span>
                 </button>
                 <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
                     <div class="text-right">
                         <p class="text-sm font-bold text-slate-900" id="companyName">Nexperia</p>
                         <p class="text-xs text-slate-600">ID: C001</p>
                     </div>
-                    <img src="https://i.pravatar.cc/150?img=10" class="w-10 h-10 rounded-full border-2 border-emerald-600">
+                    <img src="https://i.pravatar.cc/150?img=10" class="w-10 h-10 rounded-full border-2 border-red-900">
                 </div>
                 <button onclick="logout()" class="p-2 hover:bg-slate-100 rounded-lg transition">
                     <i class="fas fa-sign-out-alt text-slate-600"></i>
@@ -46,7 +46,7 @@
             
             <!-- Tabs de Navegación -->
             <div class="flex gap-4 mb-8 border-b border-slate-200">
-                <button onclick="cambiarTab('dashboard')" class="tab-btn active px-4 py-3 font-bold border-b-2 border-emerald-600 text-emerald-600">
+                <button onclick="cambiarTab('dashboard')" class="tab-btn active px-4 py-3 font-bold border-b-2 border-red-900 text-red-900">
                     <i class="fas fa-home mr-2"></i> Dashboard
                 </button>
                 <button onclick="cambiarTab('ofertas')" class="tab-btn px-4 py-3 font-bold border-b-2 border-transparent text-slate-600 hover:text-slate-900">
@@ -64,37 +64,37 @@
             <div id="tab-dashboard" class="tab-content">
                 <!-- Stats -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-6 border border-emerald-200">
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border border-red-200">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-bold text-emerald-600 uppercase">Ofertas Activas</p>
-                                <p class="text-3xl font-black text-emerald-900 mt-1">3</p>
+                                <p class="text-sm font-bold text-red-700 uppercase">Ofertas Activas</p>
+                                <p class="text-3xl font-black text-red-900 mt-1">3</p>
                             </div>
-                            <div class="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
+                            <div class="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
                                 <i class="fas fa-briefcase"></i>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+                    <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-6 border border-amber-200">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-bold text-blue-600 uppercase">Aplicaciones</p>
-                                <p class="text-3xl font-black text-blue-900 mt-1">24</p>
+                                <p class="text-sm font-bold text-amber-700 uppercase">Aplicaciones</p>
+                                <p class="text-3xl font-black text-amber-900 mt-1">24</p>
                             </div>
-                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
+                            <div class="w-16 h-16 bg-amber-700 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
                                 <i class="fas fa-paper-plane"></i>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-bold text-purple-600 uppercase">En Revisión</p>
-                                <p class="text-3xl font-black text-purple-900 mt-1">8</p>
+                                <p class="text-sm font-bold text-orange-700 uppercase">En Revisión</p>
+                                <p class="text-3xl font-black text-orange-900 mt-1">8</p>
                             </div>
-                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
+                            <div class="w-16 h-16 bg-orange-700 rounded-full flex items-center justify-center text-white text-2xl opacity-20">
                                 <i class="fas fa-eye"></i>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
             <!-- Tab: Mis Ofertas -->
             <div id="tab-ofertas" class="tab-content hidden">
                 <div class="mb-6">
-                    <button class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-emerald-700 transition">
+                    <button class="bg-red-900 text-white font-bold px-6 py-3 rounded-lg hover:bg-red-800 transition">
                         <i class="fas fa-plus mr-2"></i> Nueva Oferta
                     </button>
                 </div>
@@ -188,39 +188,39 @@
                     </div>
 
                     <!-- Inclusión y Diversidad -->
-                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded">
-                        <h3 class="font-black text-emerald-900 mb-4 text-lg flex items-center gap-2">
+                    <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded">
+                        <h3 class="font-black text-red-900 mb-4 text-lg flex items-center gap-2">
                             <i class="fas fa-heart"></i> Compromiso con Inclusión y Diversidad
                         </h3>
                         
                         <div class="space-y-4">
                             <div>
-                                <label class="flex items-center gap-2 text-emerald-900">
+                                <label class="flex items-center gap-2 text-red-900">
                                     <input type="checkbox" checked>
                                     <span class="font-semibold">Ofrecemos acomodaciones para personas con discapacidad</span>
                                 </label>
                             </div>
                             <div>
-                                <label class="flex items-center gap-2 text-emerald-900">
+                                <label class="flex items-center gap-2 text-red-900">
                                     <input type="checkbox" checked>
                                     <span class="font-semibold">Comprometido con igualdad de género</span>
                                 </label>
                             </div>
                             <div>
-                                <label class="flex items-center gap-2 text-emerald-900">
+                                <label class="flex items-center gap-2 text-red-900">
                                     <input type="checkbox" checked>
                                     <span class="font-semibold">Promovemos diversidad cultural y étnica</span>
                                 </label>
                             </div>
                             <div>
-                                <label class="flex items-center gap-2 text-emerald-900">
+                                <label class="flex items-center gap-2 text-red-900">
                                     <input type="checkbox">
                                     <span class="font-semibold">Ofrecemos programas de mentoría para grupos subrepresentados</span>
                                 </label>
                             </div>
                         </div>
 
-                        <p class="text-sm text-emerald-800 mt-4 italic">
+                        <p class="text-sm text-red-800 mt-4 italic">
                             <i class="fas fa-info-circle mr-2"></i>
                             Tu compromiso con inclusión y diversidad será visible para los candidatos
                         </p>
