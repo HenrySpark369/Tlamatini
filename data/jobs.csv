@@ -2,3 +2,20 @@ id,empresa,puesto,competencias_requeridas,sector_estrategico,salario_usd,ubicaci
 O001,Nexperia (Semiconductores),Ingeniero de Procesos,Python|Control de procesos|Electrónica,semiconductores,2500,Guadalajara
 O002,Tesla Manufacturing,Especialista en Automatización,C++|PLC|Robótica|Automatización industrial,automotriz,3000,CDMX
 O003,Airbus Mexico,Ingeniero Estructural,CATIA|Análisis estructural|Composite materials,aeroespacial,3500,Querétaro
+O004,Intel Mexico,Ingeniero de Software,Python|JavaScript|Bases de datos|Node.js,semiconductores,3200,Guadalajara
+O005,Volkswagen,Ingeniero CAD,CAD|Simulación|Resistencia de materiales,automotriz,2800,Puebla
+O006,Qualcomm,Especialista en Microcontroladores,Matlab|Microcontroladores|Arduino|C,semiconductores,3400,CDMX
+O007,BMW Toluca,Ingeniero de Procesos Lean,Lean|Six Sigma|Optimización,automotriz,3100,Toluca
+O008,Siemens,Ingeniero de Sistemas 5G,5G|Linux|C|Protocolos de red,semiconductores,3600,CDMX
+O009,Enel Green Power,Analista Ambiental,GIS|Python|Análisis de datos,energia_limpia,2700,Monterrey
+O010,Repsol,Ingeniero Químico,Termodinámica|Procesos químicos|Matlab,energia_limpia,3300,Salina Cruz
+O011,ABB,Especialista Robótica,Visión por computadora|OpenCV|Robótica avanzada,automotriz,3500,San Luis Potosí
+O012,Bombardier,Ingeniero Aeronáutico Senior,CATIA avanzado|Aerodinámica|Composite,aeroespacial,4000,Ciudad de México
+O013,Microsoft,Ingeniero Cloud,AWS|Docker|Kubernetes|Microservicios,semiconductores,4200,CDMX
+O014,Apex,Ingeniero de Automatización,Automatización|HMI|PLC|Robótica industrial,automotriz,3100,Guadalajara
+O015,Airbus,Especialista FPGA,Diseño de circuitos|FPGA|Verilog,semiconductores,3800,Querétaro
+O016,PEMEX,Analista de Energías Renovables,Energías renovables|GIS|Análisis de datos,energia_limpia,2900,Región Sur
+O017,Bosch,Ingeniero de Pruebas,Testing|C++|Automatización de pruebas|Linux,automotriz,2900,Toluca
+O018,Samsung,Diseñador de Circuitos,Diseño de circuitos|Power electronics|FPGA,semiconductores,3700,Guadalajara
+O019,Rolls-Royce,Ingeniero Estructural Avanzado,CATIA|Composite materials|FEA avanzado,aeroespacial,3900,Querétaro
+O020,Infineon,Especialista en Procesamiento de Señales,Matlab|Procesamiento de señales|DSP,semiconductores,3500,Guadalajara

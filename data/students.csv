@@ -2,3 +2,15 @@ id,nombre,carrera,semestre,competencias,sector_interes
 E001,Carlos Mendoza,Ingeniería en Electrónica,8,Python|Control de procesos|Electrónica|PCB design,semiconductores
 E002,Ana García,Ingeniería Mecatrónica,6,C++|Robótica|PLC|Automatización industrial,automotriz
 E003,Miguel López,Ingeniería Aeronáutica,9,CATIA|Dinámica de fluidos|Composite materials|Análisis estructural,aeroespacial
+E004,Diana Reyes,Ingeniería en Software,7,Python|JavaScript|React|Node.js|Bases de datos,semiconductores
+E005,Roberto Silva,Ingeniería Mecánica,10,CAD|Simulación|Resistencia de materiales|Diseño 3D,automotriz
+E006,Sofía González,Ingeniería Eléctrica,5,Matlab|Procesamiento de señales|Microcontroladores|Arduino,semiconductores
+E007,Juan Torres,Ingeniería Industrial,9,Lean|Six Sigma|Optimización de procesos|Excel avanzado,automotriz
+E008,Mariana López,Ingeniería Química,6,Termodinámica|Procesos químicos|Matlab|Simulación,energia_limpia
+E009,Francisco Ruiz,Ingeniería en Telecomunicaciones,8,5G|Sistemas embebidos|Linux|C|Protocolos de red,semiconductores
+E010,Lucia Ortiz,Ingeniería Ambiental,7,GIS|Análisis de datos|Python|Energías renovables,energia_limpia
+E011,Andrés Méndez,Ingeniería Mecatrónica,10,Visión por computadora|OpenCV|Python|Robótica avanzada,automotriz
+E012,Camila Ruiz,Ingeniería Aeronáutica,8,CATIA avanzado|Aerodinámica|Composite design|FEA,aeroespacial
+E013,David Chen,Ingeniería de Sistemas,7,Cloud|AWS|Docker|Kubernetes|Microservicios,semiconductores
+E014,Elena Vázquez,Ingeniería Mecánica,6,Automatización|Robótica industrial|PLC|HMI,automotriz
+E015,Pablo García,Ingeniería Electrónica,9,Diseño de circuitos|FPGA|Verilog|Power electronics,semiconductores
