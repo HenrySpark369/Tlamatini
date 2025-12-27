@@ -155,7 +155,7 @@ Tlamatini - Empleabilidad Tech Inclusiva
 **Capacidad:** Hasta 200-300 usuarias activas sin pagar
 
 **Plan de Migración (Si Crece Más Rápido):**
-- Railway → Render ($7/mes por servicio)
+- Railway → Seenode (planes competitivos)
 - Supabase → Supabase Pro ($25/mes)
 - **Total con crecimiento:** $50-75/mes para 500-1000 usuarias
 
