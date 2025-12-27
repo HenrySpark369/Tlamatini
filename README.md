@@ -8,20 +8,20 @@
 - **Sector estratégico del Plan México:** Desarrollo de Talento y Competitividad Digital
 
 ### Objetivos del Plan México que Aborda
-1. **Desarrollo de Talento:** Conectar estudiantes/egresados con empleadores en sectores estratégicos
+1. **Desarrollo de Talento:** Conectar mujeres y mujeres con discapacidad con empleadores en sectores estratégicos
 2. **Inversión y Empleo de Alto Valor:** Identificar y conectar talento especializado en manufactura y sectores estratégicos
-3. **Digitalización y Competitividad:** Reducir tiempo de matching estudiante-empresa mediante plataforma digital
+3. **Digitalización y Competitividad:** Reducir tiempo de matching usuarias-empresas mediante plataforma digital
 4. **Proveeduría Nacional:** Conectar PYMES locales con oportunidades de empleo y desarrollo
 
 ### Problema u Oportunidad Identificada
 En la economía digital mexicana existe una **brecha crítica** entre:
 - Estudiantes/egresados de la Universidad Rosario Castellanos sin visibilidad en mercado laboral
-- Empresas de sectores estratégicos (automotriz, aeroespacial, semiconductores) que buscan talento especializado
-- **Tiempo promedio de vinculación:** 2-3 meses (vs. objetivo nacional de 1 mes)
+- Empresas de sectores estratégicos (Tecnologías de la Información y Software) que buscan talento especializado
+
 
 ### Solución Propuesta
 **TalentoMX** es una plataforma digital que:
-- Conecta estudiantes con empleadores mediante matching inteligente
+- Conectará mujeres y mujeres con discapacidad con empleadores mediante matching inteligente con base a habilidades y competencias
 - Visualiza oportunidades en sectores estratégicos del Plan México
 - Reduce el tiempo de vinculación mediante algoritmos de compatibilidad
 - Facilita registro de competencias y seguimiento de oportunidades
@@ -31,7 +31,8 @@ TalentoMX transforma la vinculación laboral tradicional en un proceso digital e
 
 ### Público Objetivo y Segmento de Mercado
 - **Segmento 1:** Estudiantes/egresados de la Universidad Rosario Castellanos
-- **Segmento 2:** Empresas PYMES y medianas (sectores: automotriz, aeroespacial, semiconductores)
+- **Perfil:** Mujeres y mujeres con discapacidad en carreras STEM
+- **Segmento 2:** Empresas PYMES y medianas (Tecnologías de la Información y Software)
 - **Mercado digital:** Transformación digital de gestión de talento en México
 - **Alcance inicial:** Local (CDMX) → Regional (Zona Metropolitana) → Nacional
 
@@ -42,7 +43,7 @@ TalentoMX transforma la vinculación laboral tradicional en un proceso digital e
 
 ### Análisis de Oportunidad de Mercado
 - **Mercado mexicano de talento digital:** ~2.5M estudiantes en educación superior
-- **Demanda en sectores estratégicos:** Crecimiento 15% anual (automotriz, semiconductores)
+- **Demanda en sectores estratégicos:** Crecimiento 15% anual (Tecnologías de la Información y Software)
 - **Brecha digital:** 85% de gestión de talento sin automatizar en PYMES
 - **Potencial TAM:** $150M anuales en servicios de vinculación laboral
 
@@ -79,7 +80,7 @@ TalentoMX transforma la vinculación laboral tradicional en un proceso digital e
 ### Justificación de Alineación con Plan México
 TalentMX aborda **directamente 3 de 6 objetivos** del Plan México:
 1. ✅ **Desarrollo de Talento:** Conexión sistemática de 150K profesionistas
-2. ✅ **Inversión y Empleo de Alto Valor:** Focus en sectores estratégicos (automotriz, aeroespacial, semiconductores)
+2. ✅ **Inversión y Empleo de Alto Valor:** Focus en sectores estratégicos (Tecnologías de la Información y Software)
 3. ✅ **Digitalización y Competitividad:** Reducción de trámites mediante ventanilla digital de oportunidades
 
 ---
@@ -177,8 +178,29 @@ El sistema trackea en tiempo real:
 ### Fase 3: Preparación para Escala (Mes 3)
 - [ ] Migrar a PostgreSQL (persistencia)
 - [ ] Implementar autenticación robusta (JWT)
-- [ ] Deploy a AWS Lightsail con auto-scaling
+- [ ] Deploy en producción con Seenode
 - [ ] Integración con universidades adicionales
+
+---
+
+## 🚀 Despliegue en Producción
+
+### Opción Recomendada: Seenode
+Despliega la aplicación completa en minutos con Seenode:
+
+```bash
+# Ver guía rápida
+cat DEPLOY_QUICK.md
+```
+
+**Documentación completa:** [`DEPLOY_SEENODE.md`](DEPLOY_SEENODE.md)
+
+**Características:**
+- ✅ Deploy automático desde GitHub
+- ✅ SSL/HTTPS incluido
+- ✅ Escalamiento automático
+- ✅ Logs en tiempo real
+- ✅ Soporte para PostgreSQL/MySQL
 
 ---
 
