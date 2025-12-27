@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script de construcción para Render
+# Script de construcción para despliegue en cloud
 
 echo "📦 Instalando dependencias..."
 pip install -r requirements.txt
