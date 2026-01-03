@@ -26,6 +26,57 @@ En la economía digital mexicana existe una **brecha crítica** entre:
 - Reduce el tiempo de vinculación mediante algoritmos de compatibilidad
 - Facilita registro de competencias y seguimiento de oportunidades
 
+### 🎯 Objetivos SMART del Proyecto
+
+#### Objetivo 1: Validar Precisión del Algoritmo de Matching
+- **Específico:** Lograr accuracy ≥ 70% en recomendaciones de matching evaluadas por empresas
+- **Medible:** Score de precisión obtenido mediante feedback de validadores empresariales
+- **Alcanzable:** Basado en algoritmo SVD implementado con sklearn
+- **Relevante:** Garantiza que las recomendaciones son útiles para empleadores
+- **Temporal:** Alcanzar antes del final de Semana 4 (cierre MVP)
+
+#### Objetivo 2: Onboarding de Usuarios Iniciales
+- **Específico:** Registrar 20 estudiantes early adopters + 5 empresas en plataforma
+- **Medible:** Número de perfiles completados con ≥ 80% de competencias registradas
+- **Alcanzable:** Universo disponible: +3000 estudiantes URC + PYMES CDMX
+- **Relevante:** Genera datos reales para validar hipótesis H1 y H2
+- **Temporal:** Completar durante Fase 1 (Semanas 3-4)
+
+#### Objetivo 3: Reducción de Tiempo de Vinculación
+- **Específico:** Disminuir tiempo promedio desde búsqueda a oferta laboral de 2-3 meses a 4-6 semanas
+- **Medible:** Días calendario entre primera búsqueda y oferta recibida (tracking de eventos)
+- **Alcanzable:** Mediante matching automático vs. búsqueda manual tradicional
+- **Relevante:** KPI clave del valor propuesto para ambos segmentos
+- **Temporal:** Validar hipótesis durante Fase 1 (Semanas 3-4) con early adopters
+
+#### Objetivo 4: Activación de Usuarios
+- **Específico:** > 60% de nuevos usuarios completa perfil en sesión inaugural
+- **Medible:** (Usuarios con perfil ≥ 80% completo / Nuevos registrados) × 100
+- **Alcanzable:** UX intuitivo + onboarding guiado en 15 minutos
+- **Relevante:** Indica capacidad de convertir visitantes en usuarios activos
+- **Temporal:** Medición continua durante MVP (baseline Semana 2)
+
+#### Objetivo 5: Crecimiento de Audiencia Inicial
+- **Específico:** 500 estudiantes + 50 empresas como escala objetivo para MVP
+- **Medible:** Total de registros activos en plataforma (estudiantes + empresas)
+- **Alcanzable:** A través de partnerships URC + redes empresariales CDMX
+- **Relevante:** Base crítica para validar modelo de negocio post-MVP
+- **Temporal:** Alcanzar en primeros 6 meses de operación
+
+#### Objetivo 6: Impacto Económico Cuantificable
+- **Específico:** Generar ahorros de $750K anuales en costos de reclutamiento (para 50 empresas)
+- **Medible:** (Costo tiempo búsqueda manual - Costo con plataforma) × 50 empresas
+- **Alcanzable:** Reducción de 50% en tiempo = 40% menos inversión en recruitment
+- **Relevante:** ROI demostrable para modelo B2B
+- **Temporal:** Proyección para Año 1 en operación full
+
+#### Objetivo 7: Retención de Usuarios
+- **Específico:** Mantener > 40% de usuarios activos en Semana 2 post-registro
+- **Medible:** (Usuarios activos Semana 2 / Registros Semana 0) × 100
+- **Alcanzable:** Mediante notificaciones de matches relevantes + UX intuitiva
+- **Relevante:** Indica product-market fit inicial
+- **Temporal:** Medición durante Fase 1 y 2 (Semanas 3-8)
+
 ### Resumen Ejecutivo
 TalentoMX transforma la vinculación laboral tradicional en un proceso digital eficiente. La plataforma conecta talento especializado de la Universidad Rosario Castellanos con empresas de sectores estratégicos mexicanos. Mediante análisis de competencias y oferta de empleo, reduce significativamente el tiempo de matching y acelera la integración de profesionales al mercado laboral. Alineado con los objetivos del Plan México 2024, TalentMX contribuye a formar 150K profesionistas anuales en cadenas de valor estratégicas.
 
